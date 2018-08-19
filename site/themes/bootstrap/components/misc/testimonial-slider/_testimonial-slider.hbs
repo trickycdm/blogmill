@@ -1,0 +1,33 @@
+{{#testimonials}}
+  <section class="testimonial-slider-section">
+    <h1 class="section-heading">
+      Testimonials
+    </h1>
+    <div id="{{id}}" class="testimonial-slider-container">
+      <div class="slick-items">
+        {{#each slides}}
+          <div class="testimonial-slider__item">
+            <blockquote class="testimonial-slider__item-text">
+              {{text}}
+            </blockquote>
+            <div class="divider"></div>
+            <h5 class="testimonial-slider__item-author">
+              {{author}} - {{company}}
+            </h5>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </section>
+{{/testimonials}}
+
+<script>
+  $(document).ready(function () {
+    // http://kenwheeler.github.io/slick/
+    $('.slick-items').slick({
+      autoplay: true,
+      dots: true,
+      arrows: false
+    });
+  });
+</script>

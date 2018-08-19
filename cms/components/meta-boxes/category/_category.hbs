@@ -1,0 +1,18 @@
+<div class="content-meta-box content-meta-box__category">
+  <div class="card card-default">
+    <div class="card-body">
+      <h4 class="card-title">Category</h4>
+      {{#each cats}}
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <input type="radio" aria-label="Radio button for following text input" name="category" value="{{id}}" {{#if isChecked}}checked{{/if}}>
+            </div>
+          </div>
+          <input type="text" class="form-control" aria-label="Text input with radio button" value="{{name}}" readonly>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</div>
+

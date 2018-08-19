@@ -1,0 +1,66 @@
+.cms-container {
+  width: 100%;
+  min-height: 100vh;
+  display: inline-grid;
+  grid-template-columns: 15% 85%;
+  grid-template-rows: auto;
+  justify-items: stretch;
+  grid-template-areas: "h h" "n b" "f f";
+}
+
+.grid-header {
+  grid-area: h;
+}
+
+.grid-nav {
+  grid-area: n;
+  min-height: 100vh;
+}
+
+.grid-body {
+  grid-area: b;
+  padding: 20px 40px;
+}
+
+.table-cell__img{
+  max-height: 140px;
+  max-width: 180px;
+}
+
+
+//bs xs > sm breakpoint
+@media all and (max-width: 767px) {
+  .cms-container {
+    grid-template-columns: 100% 100%
+  }
+}
+
+//bs sm > md breakpoint (Ipad Portrait)
+@media all and (min-width: 768px) and (max-width: 992px) {
+
+}
+
+//bs slim md > md
+@media all and (min-width: 993px) and (max-width: 1200px) {
+
+}
+
+//reduce desktop nav item padding
+@media all and (max-width: 1120px) {
+
+}
+
+//iphone 4 mobile nav item spacing
+@media all and (max-width: 320px) and (max-height: 480px) {
+
+}
+
+//iphone 6
+@media all and (max-width: 375px) and (max-height: 667px) {
+
+}
+
+//iphone 5
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (orientation: portrait) {
+
+}

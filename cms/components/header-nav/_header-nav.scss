@@ -1,0 +1,36 @@
+.top-header {
+  height: 100px;
+  width: 100%;
+  background-color: $white;
+  padding: $unit*2;
+}
+
+.top-header__logo {
+  height: 60px;
+}
+
+.top-header__user-container {
+  padding: $unit*2;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-header__user-img {
+  height: 60px;
+  width: 60px;
+  margin-right: $unit;
+  border-radius: 100%;
+  object-fit: cover;
+}
+
+.top-header__user-meta {
+  justify-content: center;
+}
+
+.top-header__user__org {
+  font-size: 14px;
+}

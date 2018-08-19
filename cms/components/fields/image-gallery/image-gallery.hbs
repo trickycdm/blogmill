@@ -1,0 +1,10 @@
+<input type="hidden" name="{{name}}" value="{{value.mediaId}}" id="{{name}}">
+<button type="button" class="btn btn-primary btn-gallery-modal" data-input-target="{{name}}" data-preview-target="{{name}}">Choose Image</button>
+{{#if options.smallText}}
+  <small class="form-text text-muted">{{options.smallText}}</small>
+{{/if}}
+<div class="image-preview-container preview-target__{{name}}">
+  {{#if value.mediaPreview}}
+    <img src="{{value.mediaPreview}}" alt="" class="image-preview">
+  {{/if}}
+</div>

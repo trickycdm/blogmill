@@ -1,0 +1,85 @@
+// psc - pointed separator contained (within wrapper)
+// l = from left hand side of the page
+
+.psc-l-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+.psc-l-left-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+  min-height: $unit * 50;
+}
+
+.psc-l-text__wrapper {
+  width: 50%;
+  background-color: $brand1;
+}
+
+.psc-l-text__wrapper::after {
+  content: " ";
+  position: absolute;
+  background-color: #277994;
+  top: 0;
+  left: -40%;
+  width: 100%;
+  bottom: 0;
+  z-index: 1;
+  transform: skew(164deg);
+}
+
+.psc-l-text__background {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.psc-l-text {
+  color: $white;
+  padding: $unit * 4 0;
+  margin: 0 $unit * 6;
+  position: relative;
+  z-index: 2;
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+
+  .psc-l-text__wrapper {
+    width: 100%;
+    margin: 0 0;
+  }
+
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+
+  .psc-l-text__wrapper {
+    width: 80%;
+    margin: $unit * 6 0;
+  }
+
+  .psc-l-text__wrapper::after {
+    background-color: transparent;
+  }
+
+  .psc-l-left-container {
+    align-items: center;
+    min-height: unset;
+  }
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+}
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+}

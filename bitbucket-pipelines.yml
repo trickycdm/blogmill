@@ -1,0 +1,29 @@
+# https://hub.docker.com/r/library/node/tags/
+image: node:8.9.4
+
+pipelines:
+  branches:
+    dev:
+     - step:
+          caches:
+            - node
+          script:
+            # Install node packages
+            - npm install
+            # Lint with standard
+            - npm run lint:fix
+    stage:
+      - step:
+          caches:
+            - node
+          script:
+            # run docker server init
+            - chmod +x .ci/stage/init.sh && ./.ci/stage/init.sh &&
+            # set up APP env file
+            - chmod +x .ci/stage/create-app-env.sh && ./.ci/stage/create-app-env.sh
+            # Install node packages
+            - npm install
+            # Lint with standard
+            - npm run lint:fix
+            # set up .env
+            - chmod +x .ci/stage/deploy.sh && ./.ci/stage/deploy.sh

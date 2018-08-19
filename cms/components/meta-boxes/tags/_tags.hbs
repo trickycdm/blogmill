@@ -1,0 +1,38 @@
+<div class="content-meta-box content-meta-box__tags">
+  <div class="card card-default">
+    <div class="card-body">
+      <h4 class="card-title">Tags</h4>
+      <div id="contentTags" class="content__tags-container">
+      </div>
+      <div class="content__tags-input">
+        <div class="content__tags-container">
+          {{#each tags}}
+            <span class="label label-info content-tag" data-value="{{this}}">{{this}}</span>
+          {{/each}}
+        </div>
+        <div class="form-group">
+          <label for="tagInput"></label>
+          <input type="text" id="tagInput" name="tags" class="form-control">
+          <small id="tagHelp" class="form-text text-muted">Comma delimited string</small>
+        </div>
+        <div class="btn-group">
+          <button class="btn btn-primary" type="button" id="tagAddBtn">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(function () {
+    //handle of tags additions
+    $('#tagAddBtn').on('click', function () {
+      let $tagInput = $('#tagInput')
+      let tags = $tagInput.val().split(',')
+      $tagInput.val('')
+      $.each(tags, function (index, value) {
+        $('#contentTags').append('<input type="hidden" name="tags" value="' + value.trim() + '"><span class="label label-info content-tag">' + value.trim() + ' </span>')
+      })
+    })
+  })
+</script>

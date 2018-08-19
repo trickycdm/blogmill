@@ -1,0 +1,18 @@
+<div class="content-meta-box content-meta-box__feature-image">
+  <div class="card card-default">
+    <div class="card-body">
+      <h4 class="card-title">Featured image</h4>
+      <input type="hidden" name="feature_image" value="{{featureImageId}}">
+      <div class="image-preview-container preview-target__feature_image">
+        {{#if featureImagePreview}}
+          <div class="btn-feature_image__remove"><span class="ion-close-round"></span></div>
+          <img src="{{featureImagePreview}}" alt="" class="image-preview">
+        {{/if}}
+      </div>
+      <div class="form-group">
+        <button type="button" class="btn btn-primary btn-gallery-modal btn-block" data-input-target="feature_image" data-preview-target="feature_image">Choose Image</button>
+      </div>
+    </div>
+  </div>
+</div>
+

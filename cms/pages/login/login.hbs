@@ -1,0 +1,72 @@
+<section class="login-box">
+  <div class="container">
+    <h1>Blogmill</h1>
+    <div class="card card-primary">
+      <div class="card-body">
+        <form role="form" class="form-horizontal" method="post" name="frmLogin" id="frmLogin">
+
+          <!-- Username -->
+          <div class="form-group row">
+            <label for="login" class="col-sm-3 control-label">
+              Login:
+            </label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="username" name="username" value="{{login}}" autofocus/>
+            </div>
+          </div>
+
+          <!-- Password -->
+          <div class="form-group row">
+            <label for="loginpassword" class="col-sm-3 control-label">
+              Password:
+            </label>
+            <div class="col-sm-9">
+              <input type="password" class="form-control" id="pw" name="pw" value=""/>
+            </div>
+          </div>
+
+          <!-- Remember me -->
+          <div class="form-group row">
+            <label for="remember" class="col-sm-3 control-label">
+              Remember me:
+            </label>
+            <div class="col-sm-9">
+              <input type="checkbox" class="form-control" id="remember" name="remember" value="1" {{#if remember}}checked{{/if}}/>
+            </div>
+          </div>
+
+          <button type="submit" name="btnLogin" value="Log in" class="btn btn-success btn-block"> Submit </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  $(document).ready(function () {
+    var $frmLogin = $('#frmLogin');
+    $frmLogin.submit(function (e) {
+      var frmData = $frmLogin.serialize();
+      e.preventDefault();
+      $.ajax({
+        url:      '',
+        type:     'POST',
+        data:     frmData,
+        dataType: 'json',
+        success:  function (resp) {
+          //called when successful
+          if (resp.control === true) {
+            location.reload();
+          } else {
+            swal('', resp.message, 'error');
+          }
+        },
+        error:    function (e) {
+          alert('Something went wrong... Please try again');
+        }
+      });
+    });
+  });
+
+</script>
+

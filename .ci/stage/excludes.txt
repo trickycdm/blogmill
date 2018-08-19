@@ -1,0 +1,7 @@
+bitbucket-pipelines.yml
+.git*
+gruntfile.js
+node_modules
+.ci
+package-lock.json
+rupl.json

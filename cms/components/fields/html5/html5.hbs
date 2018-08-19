@@ -1,0 +1,10 @@
+{{!--
+@desc My new field
+@example name: {type: "html5", inputType: {text|email|number|anyHTML5Type}, title: "Name", validation: { required: true, maxlength: 15, minlength: 4, pattern: "regex|\.more(com|plex)\.regex?" } }
+--}}
+<input type="{{options.inputType}}" class="form-control" name="{{name}}" id="{{name}}" value="{{value}}" placeholder="{{options.placeholder}}" {{#each options.validation}}{{@key}}="{{this}}"{{/each}}/>
+{{#if options.smallText}}
+  <small class="form-text text-muted">{{options.smallText}}</small>
+{{/if}}
+
+

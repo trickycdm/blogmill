@@ -1,0 +1,33 @@
+{{#if aboveEdit}}
+  {{#aboveEdit}}
+    {{> (lookup . 'partial') data}}
+  {{/aboveEdit}}
+{{/if}}
+
+<div class="fields-container">
+  <form role="form" class="form-horizontal" method="post" action="" id="form">
+    <div class="card card-primary">
+      <div class="card-body">
+        {{#each templateFields}}
+          {{#if uiFieldType}}
+            {{> (lookup . 'rowTemplate') this}}
+          {{/if}}
+        {{/each}}
+        <div class="row">
+          <div class="col">
+            <button type="button" class="btn btn-danger btn-go-back">Cancel</button>
+          </div>
+          <div class="col">
+            <button class="btn btn-success float-right">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+{{#if belowEdit}}
+  {{#belowEdit}}
+    {{> (lookup . 'partial') data}}
+  {{/belowEdit}}
+{{/if}}

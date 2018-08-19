@@ -1,0 +1,8 @@
+.env
+node_modules/
+/npm-debug.log
+.idea
+.sass-cache
+.DS_Store
+/cms/temp/
+/cms/public/uploads/

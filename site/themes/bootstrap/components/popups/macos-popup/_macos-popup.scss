@@ -1,0 +1,118 @@
+$lightGrey: #e6e4e6;
+$darkGrey: #bbb9bb;
+$headerGradient: linear-gradient(to bottom, #e6e4e6 0%,#e6e4e6 0%,#d0cfd1 87%,#d5d4d6 99%,#d0cfd1 100%);
+$lightBlue: #6981f7;
+$blue: #1672fb;
+$blueGradient: linear-gradient(to bottom, #1e5799 0%, #2bb0f2 0%, #2989d8 50%, #207cca 100%, #1672fb 100%);
+$borderGrey: #cecece;
+$boxShadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.35);
+$font: 'Helvetica';
+.macos-popup-container {
+  position: fixed;
+  background: transparent;
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+  z-index: 999999;
+  font-family: $font;
+}
+
+.macos-popup {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transform: translateY(-50%);
+  width: 450px;
+  background: #efefef;
+  box-shadow: $boxShadow;
+  z-index: 999999;
+  text-align: left;
+  font-size: 14px;
+  line-height: 14px;
+  padding: 34px 0 20px ;
+  border-radius: 3px;
+}
+.macos-popup-header{
+  height: 22px;
+  background: $headerGradient;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom: 1px solid $borderGrey;
+}
+.macos-padlock-container {
+  width: 24%;
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 20px;
+}
+
+.macos-padloack-img {
+  width: 100%;
+}
+
+.macos-text-container {
+  width: 74%;
+  display: inline-block;
+  vertical-align: top;
+  .macos-headline {
+    margin-bottom: 10px;
+    line-height: 18px;
+  }
+  .macos-permission {
+    margin-bottom: 25px;
+  }
+}
+
+.macos-inputs {
+  margin-bottom: 40px;
+}
+
+.macos-input-group {
+  margin-bottom: 5px;
+  line-height: 18px;
+}
+
+.macos-label {
+  width: 80px;
+  text-align: right;
+  margin-right: 5px;
+}
+
+.macos-input {
+  box-shadow: none;
+  border: 1px solid $borderGrey;
+  width: 228px;
+}
+
+.macos-password {
+  -webkit-text-security: disc; /* Default */
+}
+
+.macos-buttons {
+  position: absolute;
+  right: 20px;
+  bottom: 15px;
+  .macos-btn {
+    padding: 4px 14px;
+    border-radius: 5px;
+    margin-left: 12px;
+    border: 1px solid $borderGrey;
+    background: white;
+    &:focus {
+      outline: none;
+    }
+    &:active {
+      outline: none;
+    }
+  }
+  .macos-submit {
+    background: $blueGradient;
+    color: white;
+  }
+}

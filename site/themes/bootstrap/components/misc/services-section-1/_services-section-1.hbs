@@ -1,0 +1,38 @@
+{{#servicesSection}}
+  <section class="services-section-1-container">
+    <div class="container">
+      <div class="row">
+
+        <!-- Tiles -->
+        <div class="col">
+          <div class="row">
+            {{#each tiles}}
+              <div class="col-md-6">
+                {{> icon-tile/_icon-tile}}
+              </div>
+            {{/each}}
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="col">
+          <div class="services-section-1__text-container">
+            <h1 class="section-heading services-section-1__heading">
+              {{heading}}
+            </h1>
+            <div class="divider"></div>
+            <div class="services-section-1__text">
+              {{#each paragraphs}}
+                <p class="services-section-1__text__paragraph">
+                  {{this}}
+                </p>
+              {{/each}}
+            </div>
+            {{> rounded-button/_rounded-button}}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+{{/servicesSection}}

@@ -1,0 +1,17 @@
+<header class="top-header">
+	<div class="top-header__logo-container">
+    <a href="/">
+      <img class="top-header__logo" src="/cms/public/img/df-logo.png" alt="logo">
+    </a>
+	</div>
+	<div class="top-header__user-container">
+		{{#if user.avatar}}
+			<img src="/api/media/{{user.avatar}}" alt="" class="top-header__user-img" data-container="body" data-toggle="popover" data-placement="bottom" data-content="{{>account-popover/_account-popover}}">
+		{{else}}
+			<img src="/cms/public/img/avatar.png" alt="" class="top-header__user-img" data-container="body" data-toggle="popover" data-placement="bottom" data-content="{{>account-popover/_account-popover}}">
+		{{/if}}
+		<div class="top-header__user-meta">
+			<div class="top-header__user__name">{{user.username}}</div>
+		</div>
+	</div>
+</header>

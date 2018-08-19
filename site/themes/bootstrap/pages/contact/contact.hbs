@@ -1,0 +1,45 @@
+{{#page}}
+  {{> header/_header}}
+{{/page}}
+{{> navs/nav/_nav}}
+<div class="contact top">
+  {{#page}}
+    <div class="contact__form margin --section">
+      <div class="container">
+        <form id="#form" action="">
+          <div class="row">
+            <div class="col">
+              <h3 class="main-font --content-color --size-lg  margin --default ">Get In Touch</h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <p class="main-font --content-color --size-md --italic margin --default"> {{description}}</p>
+            </div>
+          </div>
+          <div class="row margin --default">
+            <div class="col-12 col-md-6">
+              <label class="contact__form-label main-font --content-color --size-md" for="name">Name</label>
+              <br>
+              <input class="contact__form-text-input second-font --size-sm" id="name" name="name" type="text">
+            </div>
+          </div>
+          <div class="row margin --default">
+            <div class="col-12 col-md-6">
+              <label class="contact__form-label main-font --content-color --size-md" for="email">Email</label>
+              <br>
+              <input class="contact__form-text-input second-font --size-sm" id="email" name="email" type="email">
+            </div>
+          </div>
+          <div class="row margin --default">
+            <div class="col">
+              <input class="button__primary second-font --size-sm --bold" type="submit">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  {{/page}}
+
+</div>
+

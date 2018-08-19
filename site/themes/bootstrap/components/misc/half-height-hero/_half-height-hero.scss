@@ -1,0 +1,51 @@
+$backgroundImage: 'site/public/img/site-2/hero-blur.jpg';
+$overlayColor: #000;
+$overlayOpacity: 0.6;
+$textColor: #fff;
+.half-height-hero-container {
+  position: relative;
+  text-align: center;
+  background-image: url($backgroundImage);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 65vh;
+  box-shadow: $bottomBoxShadowDeep;
+  .divider{
+    margin: $unit*4 auto;
+  }
+}
+
+.half-height-hero__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba($overlayColor, $overlayOpacity);
+}
+
+.half-height-hero__text-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.half-height-hero__title-text {
+  color: $textColor;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 30px;
+}
+
+.half-height-hero__dynamic-text {
+  color: $textColor;
+  font-size: 48px;
+}
+
+.half-height-hero__dynamic-word {
+  font-weight: bold;
+}

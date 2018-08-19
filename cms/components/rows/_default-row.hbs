@@ -1,0 +1,8 @@
+<div class="form-group row" id="field_{{name}}">
+  <label class="col-sm-3 control-label">
+    {{uiLabel}}
+  </label>
+  <div class="col-sm-9" id="content_{{name}}">
+    {{> (lookup . 'partial') this}}
+  </div>
+</div>

@@ -1,0 +1,18 @@
+{{#contentInfo}}
+  <div class="content-meta-box content-meta-box__info">
+    <div class="card card-default">
+      <div class="card-body">
+        {{#if id}}<p>Id: {{id}}</p>{{/if}}
+        {{#if status}}<p>Status: {{status}}</p>{{/if}}
+        {{#if publish_date}}<p>Published: {{publish_date}}</p>{{/if}}
+        {{#if last_modified_date}}<p>Modified: {{last_modified_date}}</p>{{/if}}
+        <button type="submit" class="btn btn-info btn-content btn-block" data-status="draft">
+          {{draftBtnLbl}}
+        </button>
+        <button type="submit" class="btn btn-success btn-content btn-lg btn-block" data-status="published" value="Save">
+          {{submitBtnLbl}}
+        </button>
+      </div>
+    </div>
+  </div>
+{{/contentInfo}}

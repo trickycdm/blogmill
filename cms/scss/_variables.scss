@@ -1,0 +1,35 @@
+//sizes
+$unit: 10px;
+
+//colors
+$black: black;
+$white: white;
+$grey: #F6F6F6;
+$brandBlue: #0082b7;
+$brandDarkBlue: #0b2636;
+$navDarkBlue: #0a3c58;
+$brandGrey: #58585a;
+$brandLightGrey: #d9dade;
+$brandPink: #c32d79;
+$brandGreen: #8aa60f;
+$brand1: $brandPink;
+$brand2: $brandBlue;
+
+//contrast colors
+$bodyBackgroundColor: #f8f9fa;
+$contentFontColor: #555;
+
+//fonts
+$mainFont: 'Open sans';
+$mainFontLight: 300;
+$mainFontRegular: 400;
+$shMainFont: $mainFontLight 18px/1.6 $mainFont;
+$secondFont: 'Montserrat', sans-serif;
+$secondFontRegular: 400;
+$secondFontBold: 600;
+$shSecondFont: $secondFontRegular 16px/1 $secondFont;
+
+//utils
+$bottomBoxShadow: 0px 2px 4px -2px rgba(0, 0, 0, 0.35);
+$bottomBoxShadowDeep: 0px 10px 10px -2px rgba(0, 0, 0, 0.35)
+

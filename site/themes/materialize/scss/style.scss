@@ -1,0 +1,20 @@
+// Style by Colin Mackenzie - DOGFI.SH Mobile
+
+@import "variables";
+@import "globals";
+@import "basic-style";
+@import "bootstrap-overrides";
+@import "../components/footer/footer";
+@import "../components/header-slider/header-slider";
+@import "../components/nav/nav";
+@import "../pages/about/about";
+@import "../pages/contact/contact";
+@import "../pages/errors/errors";
+@import "../pages/home/home";
+@import "../pages/page/page";
+@import "../pages/post/post";
+@import "../pages/posts/posts";
+@import "../pages/sandbox/sandbox";
+@import "../pages/services/services";
+@import "media";
+@import "normalize";

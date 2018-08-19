@@ -1,0 +1,13 @@
+.about__img-container{
+  height: $unit * 40;
+  width: $unit * 34;
+  max-width:100%;
+}
+
+.about__img{
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}

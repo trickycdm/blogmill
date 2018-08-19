@@ -1,0 +1,69 @@
+[
+  {
+    "lbl": "Config",
+    "href": "config",
+    "icon": "ion-gear-a"
+  },
+  {
+    "lbl": "Pages",
+    "icon": "ion-android-document",
+    "children": [
+      {
+        "lbl": "Homepage",
+        "href": "cms/page-home"
+      },
+      {
+        "lbl": "Services",
+        "href": "cms/page-services"
+      },
+      {
+        "lbl": "Posts",
+        "href": "cms/page-posts"
+      },
+      {
+        "lbl": "Post",
+        "href": "cms/page-post"
+      },
+      {
+        "lbl": "Contact",
+        "href": "cms/page-contact"
+      }
+    ]
+  },
+  {
+    "lbl": "Footer",
+    "href": "footer",
+    "icon": "ion-android-create"
+  },
+  {
+    "lbl": "Services",
+    "href": "services",
+    "icon": "ion-grid"
+  },
+  {
+    "lbl": "Testimonies",
+    "href": "testimonials",
+    "icon": "ion-speakerphone"
+  },
+  {
+    "lbl": "Media",
+    "href": "media",
+    "icon": "ion-images"
+  },
+  {
+    "lbl": "Posts",
+    "href": "posts",
+    "icon": "ion-ios-chatboxes-outline"
+  },
+  {
+    "lbl": "Post Categories",
+    "href": "post-categories",
+    "icon": "ion-ios-pricetags-outline"
+  },
+  {
+    "lbl": "Users",
+    "href": "users",
+    "icon": "ion-ios-people-outline"
+  }
+]
+

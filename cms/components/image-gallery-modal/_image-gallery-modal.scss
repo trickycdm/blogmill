@@ -1,0 +1,27 @@
+.image-gallery__image-container {
+  text-align: center;
+}
+
+.image-gallery__thumbnail {
+  display: inline-flex;
+  width: 220px;
+  height: 220px;
+  margin: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  &.selected {
+    border: 4px solid $brandBlue;
+  }
+}
+
+.image-preview-container {
+  position: relative;
+  .image-preview{
+    height: 260px;
+    margin: $unit 0;
+    max-width: 100%;
+    object-fit: cover;
+  }
+}

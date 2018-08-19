@@ -1,0 +1,12 @@
+<div class="widget-recent-posts-container">
+  <h2 class="widget-recent-posts__heading">{{heading}}</h2>
+  <ul class="widget-recent-posts__list">
+    {{#each posts}}
+      <li class="widget-recent-posts__list-item">
+        <a class="widget-recent-posts__list-item__link" href="{{href}}">
+          {{lbl}}
+        </a>
+      </li>
+    {{/each}}
+  </ul>
+</div>

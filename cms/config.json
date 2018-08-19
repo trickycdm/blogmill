@@ -1,0 +1,10 @@
+{
+  "CMS_ROOT": "/cms",
+  "CMS_HOME": "posts",
+  "PARTIALS_DIR": "cms/components",
+  "TEMP_FILE_DIR": "cms/temp",
+  "RELATIVE_IMG_UPLOADS_DIR": "public/uploads",
+  "DEFAULT_IMG_PATH": "public/img/default-image.jpg",
+  "DEFAULT_AVATAR_PATH": "public/img/avatar.png",
+  "AUTH_COOKIE_NAME": "lptoken"
+}

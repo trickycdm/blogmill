@@ -1,0 +1,46 @@
+$colors: #360745, #d61c59, #e7d84b, #efeac5, #1b8798;
+$max: 5;
+$stroke-step: 3%;
+
+.drawn-rainbow-text {
+  height: 100vh;
+  background: hsl(200, 70, 11);
+  background-size: 0.12em 100%;
+  font: 4em/1 Arial;
+}
+
+.heading {
+}
+
+.sub-heading{
+  font-size: 1.2em;
+}
+
+svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.text-copy {
+  fill: none;
+  stroke: white;
+  stroke-dasharray: $stroke-step $stroke-step * ($max - 1);
+  stroke-width: 3px;
+  animation: stroke-offset 2s ease;
+
+  @for $item from 1 through $max {
+    $stroke-color: nth($colors, $item);
+    &:nth-child(#{$item}) {
+      stroke: $stroke-color;
+      stroke-dashoffset: $stroke-step * $item;
+    }
+  }
+}
+
+@keyframes stroke-offset {
+  10% {
+    stroke-dashoffset: $max * $stroke-step;
+    stroke-dasharray: 0 $stroke-step * ($max*2.5);
+  }
+}

@@ -1,0 +1,95 @@
+// font classes - - - - - - - - - - - -
+
+.main-font {
+  font-family: $mainFont;
+  -webkit-font-smoothing: antialiased;
+  &.--content-color {
+    color: $contentFontColor;
+  }
+  &.--italic {
+    font-style: italic;
+  }
+  &.--size-lg {
+    font-size: $unit * 3.6;
+  }
+  &.--size-md {
+    font-size: $unit * 2.2;
+  }
+  &.--size-sm {
+    font-size: $unit * 1.8;
+  }
+}
+
+.second-font {
+  font-family: $secondFont;
+  &.--content-color {
+    color: $contentFontColor;
+  }
+  &.--size-lg {
+    font-size: $unit * 3;
+  }
+  &.--size-md {
+    font-size: $unit * 2.4;
+  }
+  &.--size-sm {
+    font-size: $unit * 1.8;
+  }
+  &.--bold {
+    font-weight: bold;
+  }
+}
+
+// top margin - - - - applied only once per page to separate nav
+.top {
+  margin-top: $unit * 8;
+}
+
+//bottom margins - - - - - - - - - - - - - - - - - //
+.margin {
+  &.--section {
+    margin-bottom: $unit * 8;
+  }
+  &.--heading {
+    margin-bottom: $unit * 6;
+  }
+  &.--default {
+    margin-bottom: $unit * 2;
+  }
+}
+
+//button - - - - - - - - - - - - - - - - - - - -
+.button__primary {
+  bottom: 0;
+  left: auto;
+  right: auto;
+  padding: $unit * 1 $unit * 2.7;
+  border: 1px solid transparent;
+  background-color: $brand1;
+  color: $white;
+  border-radius: 5px;
+  width: max-content;
+  width: -moz-max-content;
+}
+
+.button__primary:hover {
+  background-color: $white;
+  color: $brand1;
+  border: 1px solid $brand1;
+  transition: .2s ease-in;
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+}
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+}

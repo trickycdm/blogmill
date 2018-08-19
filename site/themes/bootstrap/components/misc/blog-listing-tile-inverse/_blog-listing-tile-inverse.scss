@@ -1,0 +1,61 @@
+$blogListingInverse__tileHeight: 500px;
+//this padding should match the cat indicator width + right margin
+$blogListingInverse__padding: 0 46px;
+$blogListingInverse__headingShFont: italic normal bolder normal 40px/1.2 'Helvetica';
+$blogListingInverse__headingTransform: uppercase;
+$blogListingInverse__excerptShFont: normal normal normal normal 18px/1.4 'Helvetica';
+$blogListingInverse__excerptFontColor: #1d1d1d;
+$blogListingInverse__catBackgroundColor: brand2;
+
+.blog-listing-tile-inverse {
+  position: relative;
+  height: $blogListingInverse__tileHeight;
+  a {
+    color: inherit
+  }
+}
+
+.blog-listing-tile-inverse__img-container {
+  display: inline-block;
+  width: 50%;
+  float: right;
+  height: $blogListingInverse__tileHeight;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.blog-listing-tile-inverse__text-container {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  padding: $blogListingInverse__padding;
+  text-align: right;
+  width: 50%;
+}
+
+.blog-listing-tile-inverse__cat {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  text-transform: capitalize;
+  &:after {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 40px;
+    height: 8px;
+    background-color: $blogListingInverse__catBackgroundColor;
+    margin-left: 6px;
+  }
+}
+
+.blog-listing-tile-inverse__heading {
+  font: $blogListingInverse__headingShFont;
+  text-transform: $blogListingInverse__headingTransform;
+}
+
+.blog-listing-tile-inverse__excerpt {
+  font: $blogListingInverse__excerptShFont;
+}

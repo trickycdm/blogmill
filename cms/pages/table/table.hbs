@@ -1,0 +1,113 @@
+{{#if aboveTable}}
+  {{#aboveTable}}
+    {{> (lookup . 'partial') data}}
+  {{/aboveTable}}
+{{/if}}
+
+<div class="table-container card card-primary">
+  <div class="card-body">
+    <form method="post" id="frmDel" class="table-form" data-table-name="{{table}}">
+      <table class="table table-striped table-bordered table-hover" id="tbl">
+        <thead class="thead-default">
+        <tr>
+          <th>
+            <input type="checkbox" id="checkAll" class="form-control"/>
+          </th>
+          {{#each tableColumns}}
+            <th>{{uiLabel}}</th>
+          {{/each}}
+        </tr>
+        </thead>
+        <tbody data-link="row" class="rowlink">
+        {{#each rows}}
+          <tr>
+            <td>
+              <input type="checkbox" data-record-id="{{id}}" class="form-control chb"/>
+            </td>
+            {{#each data}}
+              <td>
+                <a href="{{link}}">
+                  {{{value}}}
+                </a>
+              </td>
+            {{/each}}
+          </tr>
+        {{/each}}
+        </tbody>
+      </table>
+
+      <div class="container-fluid table-btn-container">
+        <div class="row">
+          <div class="col">
+            <button type="submit" class="btn btn-danger">Delete selected</button>
+          </div>
+          <div class="col">
+            <a href="{{CMS_ROOT}}/{{route}}/new">
+              <button type="button" class="btn btn-success float-right">Add new</button>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+{{#if belowTable}}
+  {{#belowTable}}
+    {{> (lookup . 'partial') data}}
+  {{/belowTable}}
+{{/if}}
+
+<!-- Script extras to format table -->
+<script>
+  $(function () {
+    $('#tbl').dataTable({
+      'paging': true,
+      'stateSave': true,
+      'pageLength': 100,
+      'ordering': true, 'order': [[1, 'asc']], 'info': true,
+      'lengthMenu': [20, 50, 100],
+      search: {search: ''},
+    })
+    $('#checkAll').on('click', function () {
+      $('.chb').prop('checked', this.checked)
+    })
+
+    //control delete action
+    let $frm = $('#frmDel')
+    $frm.on('submit', function (e) {
+      e.preventDefault()
+      let deleteCount = $('.chb:checked').length
+      if (deleteCount > 0) {
+        swal({
+          title: 'Are you sure?',
+          text: `Delete ${deleteCount} record(s)?`,
+          icon: 'warning',
+          buttons: true,
+          dangerMode: true,
+        })
+        .then((willDelete) => {
+          if (willDelete) {
+            let data = []
+            $('.chb:checked').each(function () {
+              data.push({
+                tableName: $frm.data('table-name'),
+                id: $(this).data('record-id')
+              })
+            })
+            $.ajax({
+              type: 'DELETE',
+              data: JSON.stringify(data),
+              contentType: 'application/json',
+              success: function (resp) { location.reload() },
+              error: function (e) { swal('Oops', 'Something went wrong on our side', 'error')}
+            })
+          }
+        })
+      } else {
+        swal('', 'Please select something to delete', 'warning')
+      }
+    })
+  })
+</script>

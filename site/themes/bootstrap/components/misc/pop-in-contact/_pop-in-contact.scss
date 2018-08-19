@@ -1,0 +1,73 @@
+$popInContact__unit: 10px;
+$popInContact__padding: $popInContact__unit*2;
+$popInContact__backgroundColor: #1d1d1d;
+$popInContact__closeBtnColor: #fff;
+$popInContact__headingShFont: regular 22px/1.2 'Helvetica';
+$popInContact__headingColor: #fff;
+$popInContact__triggerSize: 80px;
+$popInContact__triggerBackgroundColor: #fff;
+$popInContact__triggerBorder: 1px solid #111;
+$popInContact__triggerBorderRadius: 100%;
+$popInContact__triggerBoxShadow:  0 3px 10px 0 rgba(0,0,0,.1);
+$popInContact__triggerBoxShadowHover:  0 10px 15px 0 rgba(0,0,0,.09);
+
+.pop-in-contact-form__trigger {
+  position: fixed;
+  cursor: pointer;
+  height: $popInContact__triggerSize;
+  width: $popInContact__triggerSize;
+  border: $popInContact__triggerBorder;
+  border-radius: $popInContact__triggerBorderRadius;
+  background: $popInContact__triggerBackgroundColor;
+  bottom: $popInContact__unit*2;
+  right: $popInContact__unit*2;
+  z-index: 1;
+  text-align: center;
+  box-shadow: $popInContact__triggerBoxShadow;
+  transition: all 0.3s ease;
+  &:hover{
+    box-shadow: $popInContact__triggerBoxShadowHover;
+  }
+}
+
+.pop-in-contact-form__trigger-icon {
+  height: $popInContact__triggerSize/1.5;
+  position: absolute;
+  top: 53%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  margin: auto;
+}
+
+.pop-in-contact-form {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  will-change: transform;
+  transform: translateY(200%);
+  background: $popInContact__backgroundColor;
+  transition: transform 0.2s ease;
+  z-index: 2;
+  padding: $popInContact__padding;
+  &.open {
+    transform: translateY(0);
+  }
+  .pop-in-contact-form__close-btn {
+    cursor: pointer;
+    position: absolute;
+    top: $popInContact__unit;
+    right: $popInContact__unit;
+    color: $popInContact__closeBtnColor;
+    font-size: $popInContact__unit*3;
+    &:after {
+      content: '\2193';
+    }
+  }
+}
+
+.pop-in-contact-form__heading {
+  font: $popInContact__headingShFont;
+  color: $popInContact__headingColor;
+  margin-bottom: $popInContact__unit*2;
+}

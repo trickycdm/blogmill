@@ -1,0 +1,32 @@
+.post__background-img {
+  height: 400px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.post__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.post__image {
+  height: $unit * 40;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.post__button-wrapper {
+  height: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.post__content p {
+  font-family: $secondFont;
+  color: $contentFontColor;
+  font-size: $unit * 1.8;
+}

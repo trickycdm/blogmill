@@ -1,0 +1,24 @@
+<nav class="side-nav">
+	<div class="side-nav__main-links">
+		<ul class="side-nav__list">
+			{{#each sideNav.mainLinks}}
+				<li class="side-nav__list-item dropdown">
+					<div class="side-nav__list-item__icon {{icon}}"></div>
+					<a href="/cms/{{href}}" class="side-nav__list-item__lbl {{#if children}}dropdown-toggle" data-toggle="dropdown{{/if}}">
+						{{lbl}}
+						{{#if children}}<b class="caret"></b>{{/if}}
+					</a>
+					{{#if children}}
+						<ul class="side-nav__list side-nav__child-list dropdown-menu">
+							{{#each children}}
+								<li class="side-nav__list-item side-nav__child-list-item">
+									<a href="{{href}}">{{lbl}}</a>
+								</li>
+							{{/each}}
+						</ul>
+					{{/if}}
+				</li>
+			{{/each}}
+		</ul>
+	</div>
+</nav>

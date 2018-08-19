@@ -1,0 +1,19 @@
+$roundedButton__color: #fff;
+$roundedButton__backgroundColor: $brand1;
+$roundedButton__hoverColor: darken($brand1, 10%);
+$roundedButton__border: none;
+$roundedButton__borderRadius: 8px;
+$roundedButton__padding: 20px 40px;
+
+.rounded-button {
+  padding: $roundedButton__padding;
+  cursor: pointer;
+  border: $roundedButton__border;
+  border-radius: $roundedButton__borderRadius;
+  background-color: $roundedButton__backgroundColor;
+  color: $roundedButton__color;
+  transition: all 0.3s ease;
+  &:hover {
+    background-color: $roundedButton__hoverColor;
+  }
+}

@@ -1,0 +1,14 @@
+<div class="content-meta-box content-meta-box__author">
+  <div class="card card-default">
+    <div class="card-body">
+      <h4 class="card-title">Author</h4>
+      <div class="form-group">
+        <select class="form-control" id="authorSelect" name="author_id">
+          {{#each users}}
+            <option value="{{id}}" {{#isSelected id ../content.author_id}}{{/isSelected}}>{{real_name}}</option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+<div class="container-fluid post-container">
+  {{#isEqual status 'draft'}}
+    <div class="alert alert-warning" role="alert">
+      This post has been saved as a draft and will not appear on the frontend until published.
+    </div>
+  {{/isEqual}}
+  <h1 class="content-heading">{{pageTitle}}</h1>
+  <hr>
+  <form action="" method="post" id="frmContent" role="form">
+    <div class="row">
+
+      <div class="col-md-9">
+        {{#each templateFields}}
+          {{#if uiFieldType}}
+            {{> (lookup . 'rowTemplate') this}}
+          {{/if}}
+        {{/each}}
+      </div>
+
+      {{#sidebar}}
+        <div class="col-md-3">
+          <div class="content__sidebar">
+            {{#each widgets}}
+              {{> (lookup . 'partial') data}}
+            {{/each}}
+          </div>
+        </div>
+      {{/sidebar}}
+
+    </div>
+  </form>
+</div>
+
+<script>
+  $(function () {
+    // toggle draft publish status before form gets submitted
+    $('.btn-content').on('click', function () { $('#status').val($(this).data('status')) })
+    //handle our content addition
+    let $frm = $('#frmContent')
+    $frm.on('submit', function (e) {
+      e.preventDefault()
+      // force tinyMCE to update the original textarea before we serialize the main form
+      tinyMCE.triggerSave()
+      //build our form data object
+      let frmData = $frm.serialize()
+      $.ajax({
+        type: 'POST',
+        data: frmData,
+        dataType: 'json',
+        success: function (resp) {
+          if (resp.control) swal('', '', 'success').then((value) => {window.location = resp.redirect })
+          else if (resp.error) swal('Oops', `${resp.message}: ${resp.error}`, 'error')
+          else swal('Oops', `${resp.message}`, 'error')
+        },
+        error: function (e) {
+          console.log(e)
+          swal('Oops', 'Something went wrong', 'error')
+        }
+      })
+    })
+  })
+</script>

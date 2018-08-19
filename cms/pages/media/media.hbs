@@ -1,0 +1,28 @@
+<div class="fields-container">
+	<form role="form" class="form-horizontal" method="post" action="" id="form">
+		<div class="card card-primary">
+			<div class="card-body">
+				{{#if existingRecord}}
+					{{#each templateFields}}
+						{{#if uiFieldType}}
+							{{> (lookup . 'rowTemplate') this}}
+						{{/if}}
+					{{/each}}
+				{{else}}
+					<p>Upload a new image</p>
+					{{> fields/image-upload/image-upload}}
+				{{/if}}
+
+				<div class="row">
+					<div class="col">
+						<button type="button" class="btn btn-danger btn-go-back">Cancel</button>
+					</div>
+					<div class="col">
+						<button class="btn btn-success float-right">Save</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+

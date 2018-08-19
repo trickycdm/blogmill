@@ -1,0 +1,7 @@
+.image-thumbnail-preview-container {
+  margin-top: $unit;
+  // uppy auto generates this so we nest the img tag
+  img{
+    max-width: 100%;
+  }
+}

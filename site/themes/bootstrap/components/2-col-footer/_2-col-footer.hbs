@@ -1,0 +1,17 @@
+{{#footer}}
+  <footer class="footer" style="background-image: url('/api/media/{{background_image}}');">
+    <div class="footer__content-background"></div>
+    <div class="footer__content">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <p class="footer__name main-font --italic --size-lg">{{name}} </p>
+            <p class="footer__description main-font --size-md">{{description}}</p>
+            <p class="footer__email main-font --size-md"><span>Email: </span><a class="footer__email-href main-font --bold" href="mailto:{{email}}">{{email}}</a></p>
+            <p class="footer__tel main-font --size-md"><span>Tel: </span> <a class="footer__tel-href main-font --bold" href="tel:{{tel}}">{{tel}}</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+{{/footer}}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="{{config.meta_description}}">
+    <meta name="author" content="Peter Johnson">
+
+    <!-- OG data -->
+    <meta property="og:title" content="{{config.og_title}}" />
+    <meta property="og:description" content="{{config.og_desc}}" />
+    <meta property="og:url" content="{{config.og_url}}" />
+    <meta property="og:image" content="{{config.og_img}}" />
+
+    <base href="/">
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto" rel="stylesheet">
+    <!-- Our custom CSS -->
+    <link rel="stylesheet" href="site/public/css/style.css">
+    <title>{{config.site_name}}</title>
+  </head>
+<body>
+
+<main class="main-container" id="main">
+  {{> nav/_nav}}
+  {{{body}}}
+  {{> footer/_footer}}
+</main>
+<!-- Materialize -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+<!-- Our custom js -->
+<script src="site/public/js/main.min.js"></script>
+</body>
+</html>

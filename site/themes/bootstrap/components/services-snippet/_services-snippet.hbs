@@ -1,0 +1,13 @@
+{{! "image_sqaure" could be replaced with some CSS that crops the other image provided }}
+<div class="col-12 col-md-6 col-lg-3 d-flex margin --default">
+  <div class="services-snippet__wrapper">
+    <div class="services-snippet__img-wrapper margin --default">
+      <div class="services-snippet__img " style="background-image: url('/api/media/{{image_square}}');"></div>
+    </div>
+    <h4 class="services-snippet__title margin --default second-font --bold --size-md">{{name}}</h4>
+    <p class="services-snippet__extract margin --default main-font --content-color --size-sm">{{extract}}</p>
+    <div class="services-snippet__button-container">
+      <a class="services-snippet__button  button__primary button__primary second-font --size-sm --bold" href="/services#{{id}}">More</a>
+    </div>
+  </div>
+</div>

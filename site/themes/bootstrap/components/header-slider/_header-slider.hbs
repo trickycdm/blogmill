@@ -1,0 +1,20 @@
+<header class="header-slider">
+  <div class="header-slider__headings-container">
+    <h1 class="header-slider__headings-title">{{header_title}}</h1>
+    <h2 class="header-slider__headings-subtitle">{{header_subtitle}}</h2>
+  </div>
+  <div id="carousel" class="carousel slide" data-ride="carousel">
+    <ol class="header-slider__carousel-indicators-wrapper">
+      <li data-target="#carousel" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel" data-slide-to="1"></li>
+      <li data-target="#carousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      {{#each carouselImages}}
+        <div class="carousel-item {{#isEqual @index 0}}active{{/isEqual}}">
+          <img class="d-block w-100" src="/api/media/{{this}}" alt="First slide">
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</header>

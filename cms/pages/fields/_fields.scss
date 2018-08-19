@@ -1,0 +1,19 @@
+.fields-container {
+  margin-top: $unit*3;
+}
+
+.array-item {
+  position: relative;
+  margin-bottom: $unit/2;
+}
+
+.array-controls {
+  position: absolute;
+  top: 6px;
+  right: -46px;
+}
+
+.btn-remove {
+  width: 24px;
+  height: 24px;
+}
