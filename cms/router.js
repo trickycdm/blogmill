@@ -28,7 +28,7 @@ router.use('/login', require(`${_root}/cms/pages/login/router`))
 // add the route of user logout
 router.use('/logout', require('auth').logout)
 // redirect if hitting the base cms url
-router.get('/', (req, res, next) => { res.redirect(CMS_CONFIG.CMS_HOME) })
+router.get('/', (req, res, next) => res.redirect(`${CMS_CONFIG.CMS_ROOT}/${CMS_CONFIG.CMS_HOME}`))
 
 /******************************************************************************************
  * AUTHENTICATED ROUTES - ALL ROUTES AFTER THIS MESSAGE REQUIRED THE USER TO BE LOGGED IN *
