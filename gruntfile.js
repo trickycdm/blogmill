@@ -2,24 +2,28 @@ require('dotenv').config()
 module.exports = function (grunt) {
   // SITE STYLE
   const siteTheme = process.env.SITE_THEME
-  const siteRoot = `site/themes/${siteTheme}/`
+  const siteRoot = `site/themes/${siteTheme}`
   const siteScssRoot = `site/themes/${siteTheme}/scss/`
   const siteGlobbedScssDestination = `${siteRoot}/scss/style.scss`
   const sitePublicStyleDestination = `${siteRoot}/public/css/style.css`
 
   // SITE JS
-  const siteJsBundledJsFile = `${siteRoot}public/js/main.js`
-  const siteJsFinalOutput = `${siteRoot}public/js/main.min.js`
+  const siteJsBundledJsFile = `${siteRoot}/public/js/bundle.js`
+  const siteJsFinalOutput = `${siteRoot}/public/js/main.min.js`
 
   // CMS STYLE
-  const cmsRoot = `cms/`
-  const cmsGlobbedScssDestination = `${cmsRoot}scss/style.scss`
-  const cmsScssRoot = `${cmsRoot}scss/`
-  const cmsPublicStyleDestination = `${cmsRoot}public/css/style.css`
+  const cmsRoot = `cms`
+  const cmsGlobbedScssDestination = `${cmsRoot}/scss/style.scss`
+  const cmsScssRoot = `${cmsRoot}/scss/`
+  const cmsPublicStyleDestination = `${cmsRoot}/public/css/style.css`
 
   // CMS JS
-  const cmsJsBundledJsFile = `${cmsRoot}public/js/main.js`
-  const cmsJsFinalOutput = `${cmsRoot}public/js/main.min.js`
+  const cmsJsBundledJsFile = `${cmsRoot}/public/js/bundle.js`
+  const cmsJsFinalOutput = `${cmsRoot}/public/js/main.min.js`
+
+  require('load-grunt-tasks')(grunt, {
+    scope: 'devDependencies'
+  })
 
   // Project configuration.
   grunt.initConfig({
@@ -28,13 +32,13 @@ module.exports = function (grunt) {
     uglify: {
       cms: {
         src: [
-          `${cmsRoot}**/_*.js`
+          `${cmsRoot}/**/_*.js`
         ],
         dest: cmsJsBundledJsFile
       },
       site: {
         src: [
-          `${siteRoot}**/_*.js`
+          `${siteRoot}/**/_*.js`
         ],
         dest: siteJsBundledJsFile
       }
@@ -43,7 +47,13 @@ module.exports = function (grunt) {
       options: {
         sourceMap: true,
         minified: true,
-        presets: ['es2015']
+        presets: [
+          ['@babel/preset-env', {
+            'targets': {
+              'chrome': '60'
+            }
+          }]
+        ]
       },
       dist: {
         files: {
@@ -78,7 +88,7 @@ module.exports = function (grunt) {
             `${siteScssRoot}_basic-style.scss`,
             `${siteScssRoot}_bootstrap-overrides.scss`,
             `${siteScssRoot}_utilities.scss`,
-            `${siteRoot}**/_*.scss`,
+            `${siteRoot}/**/_*.scss`,
             // add media last to ensure it always has precidence
             `${siteScssRoot}_media.scss`
           ]
@@ -95,7 +105,7 @@ module.exports = function (grunt) {
             `${cmsScssRoot}_globals.scss`,
             `${cmsScssRoot}_basic-style.scss`,
             `${cmsScssRoot}_bootstrap-overrides.scss`,
-            `${cmsRoot}**/_*.scss`
+            `${cmsRoot}/**/_*.scss`
           ]
         },
         options: {
@@ -123,86 +133,46 @@ module.exports = function (grunt) {
         }
       }
     },
-    // lint and sort the css rules before compilation
-    csscomb: {
-      site: {
-        dynamic_mappings: {
-          expand: true,
-          cwd: siteRoot,
-          src: ['style.scss'],
-          dest: siteRoot,
-          ext: '.scss'
-        }
-      },
-      cms: {
-        dynamic_mappings: {
-          expand: true,
-          cwd: cmsRoot,
-          src: ['style.scss'],
-          dest: cmsRoot,
-          ext: '.scss'
-        }
-      }
-    },
     // take our processed scss >> css and lint and augment the css
     postcss: {
-      site: {
-        options: {
-          map: {
-            inline: false, // save all sourcemaps as separate files...
-            annotation: `${sitePublicStyleDestination}style.min.css` // ...to the specified directory
-          },
-          processors: [
-            require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes
-            require('cssnano')() // minify the result
-          ]
+      options: {
+        map: {
+          inline: false, // save all sourcemaps as separate files...
+          annotation: `${siteRoot}/public/css/maps/` // ...to the specified directory
         },
-        dist: {
-          src: `${sitePublicStyleDestination}style.css`
-        }
+        processors: [
+          require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes
+          require('cssnano')() // minify the result
+        ]
       },
-      cms: {
-        options: {
-          map: {
-            inline: false, // save all sourcemaps as separate files...
-            annotation: `${cmsPublicStyleDestination}style.min.css` // ...to the specified directory
-          },
-          processors: [
-            require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes
-            require('cssnano')() // minify the result
-          ]
-        },
-        dist: {
-          src: `${cmsPublicStyleDestination}style.css`
-        }
+      dist: {
+        src: `${sitePublicStyleDestination}`
       }
     },
     watch: {
       site_css: {
-        files: [`${siteRoot}**/_*.scss`],
+        files: [`${siteRoot}/**/_*.scss`],
         tasks: ['site-style-build']
       },
       cms_css: {
-        files: [`${cmsRoot}**/_*.scss`],
+        files: [`${cmsRoot}/**/_*.scss`],
         tasks: ['cms-style-build']
       },
       cms_js: {
-        files: [`${cmsRoot}**/_*.js`],
+        files: [`${cmsRoot}/**/_*.js`],
         tasks: ['cms-js-build']
       },
       site_js: {
-        files: [`${siteRoot}**/_*.js`],
+        files: [`${siteRoot}/**/_*.js`],
         tasks: ['site-js-build']
       }
     }
   })
 
-  require('load-grunt-tasks')(grunt, {scope: 'devDependencies'})
-
   // Default task(s).
   grunt.registerTask('cms-js-build', ['uglify:cms', 'browserify:cms', 'babel'])
   grunt.registerTask('site-js-build', ['uglify:site', 'browserify:site', 'babel'])
 
-  grunt.registerTask('site-style-build', ['sass_globbing:site', 'csscomb:site', 'sass:site', 'postcss:site'])
-  grunt.registerTask('cms-style-build', ['sass_globbing:cms', 'csscomb:cms', 'sass:cms', 'postcss:cms'])
+  grunt.registerTask('site-style-build', ['sass_globbing:site', 'sass:site', 'postcss'])
+  grunt.registerTask('cms-style-build', ['sass_globbing:cms', 'sass:cms'])
 }

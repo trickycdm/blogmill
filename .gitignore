@@ -6,3 +6,4 @@ node_modules/
 .DS_Store
 /cms/temp/
 /cms/public/uploads/
+!/cms/public/uploads/.gitkeep
