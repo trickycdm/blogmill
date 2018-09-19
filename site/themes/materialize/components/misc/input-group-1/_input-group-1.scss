@@ -1,0 +1,25 @@
+$inputGroup1__unit: 10px;
+$inputGroup1__margin: 0 0 $unit*2;
+$inputGroup1__labelShFont: regular 16px/1.2 'Helvetica';
+$inputGroup1__labelColor: #fff;
+$inputGroup1__inputPadding: 8px;
+$inputGroup1__borderRadius: 4px;
+
+.input-group-1-container {
+  margin: $inputGroup1__margin;
+}
+
+.input-group-1__label {
+  font: $inputGroup1__labelShFont;
+  color: $inputGroup1__labelColor;
+  text-align: left;
+  display: block;
+  margin-bottom: $inputGroup1__unit/2;
+}
+
+.input-group-1__input {
+  box-sizing: border-box;
+  border: none;
+  padding: 8px;
+  border-radius: $inputGroup1__borderRadius;
+}

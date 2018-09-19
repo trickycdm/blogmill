@@ -1,0 +1,40 @@
+$size: 40px !default;
+$transition: .3s !default;
+$jstransform: 'transform' !default;
+$svg-chevron-size: $size !default;
+$svg-chevron-color: #fff !default;
+$svg-chevron-strokew: 1px !default;
+$svg-chevron-timing: 3s !default;
+
+@keyframes chevron-pulse {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.svg-chevron {
+  height: $svg-chevron-size;
+  width: $svg-chevron-size;
+}
+
+.svg-chevron path {
+  animation: chevron-pulse $svg-chevron-timing infinite cubic-bezier(0.4, 0, 0.2, 1);
+  fill: transparent;
+  stroke: $svg-chevron-color;
+  stroke-width: $svg-chevron-strokew;
+}
+
+@for $i from 1 through 3 {
+  .svg-chevron path.a#{$i} {
+    animation-delay: -($i - ($i/2)) + 0.5s;
+  }
+}

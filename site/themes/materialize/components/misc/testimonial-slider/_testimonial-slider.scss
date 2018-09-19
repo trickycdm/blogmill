@@ -1,0 +1,60 @@
+$testimonialSlider__unit: 12px;
+$testimonialSlider__backgroundColor: #1f1f1f;
+$testimonialSlider__padding: 40px;
+$testimonialSlider__margin: 0 0 $testimonialSlider__unit*4;
+$testimonialSlider__contentWidth: 1140px;
+$testimonialSlider__fontColor: #fff;
+$testimonialSlider__shTextFont: 26px/1.2 'Helvetica';
+$testimonialSlider__shAuthorFont: italic 22px/1.2 'Helvetica';
+$testimonialSlider__authorFontColor: $brandMain;
+$testimonialSlider__dividerColor: $brandSecondary;
+.testimonial-slider-section {
+  width: 100%;
+  background: $testimonialSlider__backgroundColor;
+  padding: $testimonialSlider__padding;
+  margin: $testimonialSlider__margin;
+  text-align: center;
+  .section-heading{
+    color: $testimonialSlider__fontColor;
+  }
+}
+
+.testimonial-slider-container {
+  max-width: $testimonialSlider__contentWidth;
+  margin: auto;
+  .slick-prev, .slick-next {
+    border-radius: 100%;
+    height: 30px;
+    width: 30px;
+    &:hover {
+    }
+  }
+}
+
+.testimonial-slider__item {
+  .testimonial-slider__item-text {
+    font: $testimonialSlider__shTextFont;
+    color: $testimonialSlider__fontColor;
+  }
+  .divider {
+    height: 2px;
+    width: 60%;
+    background: $testimonialSlider__dividerColor;
+    margin: 30px auto;
+  }
+  .testimonial-slider__item-author {
+    font: $testimonialSlider__shAuthorFont;
+    color: $testimonialSlider__authorFontColor;
+  }
+}
+
+//bs xs > sm breakpoint
+@media all and (max-width: 767px) {
+  .slick-arrow {
+    opacity: 0;
+  }
+  .testimonial-slider__item .testimonial-slider__item-text {
+    margin: $testimonialSlider__unit*2 0;
+    font-size: 24px;
+  }
+}
