@@ -71,13 +71,12 @@ router.get('/posts', (req, res, next) => {
   else next(new Error('NO POSTS TEMPLATE SET'))
 })
 
-// the main posts template will always be used at /posts, this expects to see a '/posts/posts.js' file in the site themes pages dir
 router.get('/posts/:permalinkSlug', async (req, res, next) => {
   try {
     const permalinkSlug = req.params.permalinkSlug
     const post = await bm.getPostByPermalinkSlug(permalinkSlug)
-    post.authorName = (await bm.getAuthorById(post.author_id)).real_name
     if (post) {
+      post.authorName = await bm.getAuthorById(post.author_id).real_name
       res.render('post/post', {
         post: post,
         page: await _db.findOne('postpage', {})
@@ -111,8 +110,7 @@ router.use((req, res, next) => {
 router.use((err, req, res, next) => {
   const supportId = uuidv4()
   const date = new Date()
-  console.log(`${date} - ${supportId}: ${err.message}`)
-  // do a raw error log here to make sure we get the full stack trace
+  err.message = `${date} - ${supportId}: ${err.message}`
   console.error(err)
   return res.status(500).render('errors/500', {
     helpers: _helpers,

@@ -3,13 +3,15 @@ const fs = require('fs')
 exports.setGlobals = async () => {
   try {
     global._root = __dirname
-    global._db = require(process.env.DB_TYPE)
-    await _db.connect()
+    global._db = require('db')
     global._helpers = require('hbs-helpers').helpers
-
     const siteThemeRoot = `${_root}/site/themes/${process.env.SITE_THEME}`
     global._sitePages = loadSitePages(`${siteThemeRoot}/pages`, true)
-  } catch (err) { console.error(new Error(`PROBLEM LOADING GLOBAL VARS: ${err}`)) }
+  } catch (err) {
+    err.message = `PROBLEM LOADING GLOBAL VARS: ${err.message}`
+    console.error(err)
+    process.exit(1)
+  }
 }
 
 function loadSitePages (pagesBaseDir) {

@@ -3,7 +3,7 @@ require('dotenv').config()
 require('dotenv-safe').load()
 
 // add our custom module paths first so we can use a nicer require
-require('app-module-path').addPath(`${__dirname}/lib`) // add ./core/lib to module path
+require('app-module-path').addPath(`${__dirname}/lib`)
 const exphbs = require('express-handlebars-multi')
 
 ;(async function main () {
