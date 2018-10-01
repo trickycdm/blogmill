@@ -20,7 +20,7 @@ pipelines:
             # run docker server init
             - chmod +x .ci/stage/init.sh && ./.ci/stage/init.sh &&
             # set up APP env file
-            - chmod +x .ci/stage/create-app-env.sh && ./.ci/stage/create-app-env.sh
+            - chmod +x .ci/stage/create-env.sh && ./.ci/stage/create-env.sh
             # Install node packages
             - npm install
             # Lint with standard
