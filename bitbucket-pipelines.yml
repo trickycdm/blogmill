@@ -3,15 +3,6 @@ image: node:8.9.4
 
 pipelines:
   branches:
-    dev:
-     - step:
-          caches:
-            - node
-          script:
-            # Install node packages
-            - npm install
-            # Lint with standard
-            - npm run lint:fix
     stage:
       - step:
           caches:
