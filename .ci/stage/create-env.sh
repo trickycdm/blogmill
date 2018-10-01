@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 echo "Creating stage APP .env file"
-echo "DB_TYPE=db-mysql" >> .env
 echo "DB_HOST=127.0.0.1" >> .env
 echo "DB_USER=root" >> .env
 echo "DB_PASSWORD=$DB_PASSWORD" >> .env
