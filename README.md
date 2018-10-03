@@ -1,5 +1,5 @@
 # Blogmill
-A lite version of Blogmill that is focused more on blog and website data. To get it running first set up all your required schemas then run the command `npm run db:init` this will generate your pages and create a user for you. THIS IS WIP
+A Node.js based CMS focused on blog and website data. To get it running first set up all your required schemas then run the command `npm run db:init` this will generate your pages and create a user for you. THIS IS WIP
 
 # Grunt
 Both the CMS and site have there own public folders. In order to compile the scss and js correctly simple prefix all partials with an underscore _, grunt will auto detect all files
