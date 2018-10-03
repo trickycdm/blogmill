@@ -11,22 +11,7 @@ router.use(function (req, res, next) {
   res.locals.layout = 'site'
   res.locals.menu = {
     links: [
-      {href: 'news', lbl: 'News'},
-      {
-        href: 'services',
-        lbl: 'Services',
-        children: [
-          {href: '/services/main-contractors', lbl: 'Main Contractors'},
-          {href: '/services/kitchens', lbl: 'Kitchens'},
-          {href: '/services/upvc-windows-and-doors', lbl: 'UPVC Windows & Doors'},
-          {href: '/services/sash-and-casement-windows', lbl: 'Sash & Casement Windows'},
-          {href: '/services/timber-windows', lbl: 'Timber Windows'},
-          {href: '/services/renovations-and-restorations', lbl: 'Renovations & Restorations'},
-          {href: '/services/gate-and-fences', lbl: 'Gates & Fences'},
-          {href: '/services/wood-machinists', lbl: 'Wood Machinists'},
-          {href: '/services/doors-and-screens', lbl: 'Doors & Screens'}
-        ]
-      }
+      {href: 'news', lbl: 'News'}
     ]
   }
   next()
