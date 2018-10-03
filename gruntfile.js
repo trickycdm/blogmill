@@ -83,6 +83,7 @@ module.exports = function (grunt) {
       site: {
         files: {
           [siteGlobbedScssDestination]: [
+            // make sure we load materialize first
             `${siteScssRoot}_variables.scss`,
             `${siteScssRoot}_globals.scss`,
             `${siteScssRoot}_basic-style.scss`,
@@ -137,8 +138,7 @@ module.exports = function (grunt) {
     postcss: {
       options: {
         map: {
-          inline: false, // save all sourcemaps as separate files...
-          annotation: `${siteRoot}/public/css/maps/` // ...to the specified directory
+          inline: false // save all sourcemaps as separate files...
         },
         processors: [
           require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes
@@ -146,7 +146,7 @@ module.exports = function (grunt) {
         ]
       },
       dist: {
-        src: `${sitePublicStyleDestination}`
+        src: [sitePublicStyleDestination, cmsPublicStyleDestination]
       }
     },
     watch: {

@@ -64,7 +64,7 @@
     "cssnano": "3.10.0",
     "flow-bin": "0.63.1",
     "grunt": "1.0.1",
-    "grunt-babel": "7.0.0",
+    "grunt-babel": "^8.0.0",
     "grunt-browserify": "5.2.0",
     "grunt-cli": "1.2.0",
     "grunt-contrib-sass": "1.0.0",
