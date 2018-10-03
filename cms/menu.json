@@ -13,20 +13,12 @@
         "href": "cms/page-home"
       },
       {
-        "lbl": "Services",
-        "href": "cms/page-services"
-      },
-      {
         "lbl": "Posts",
         "href": "cms/page-posts"
       },
       {
         "lbl": "Post",
         "href": "cms/page-post"
-      },
-      {
-        "lbl": "Contact",
-        "href": "cms/page-contact"
       }
     ]
   },
@@ -34,16 +26,6 @@
     "lbl": "Footer",
     "href": "footer",
     "icon": "ion-android-create"
-  },
-  {
-    "lbl": "Services",
-    "href": "services",
-    "icon": "ion-grid"
-  },
-  {
-    "lbl": "Testimonies",
-    "href": "testimonials",
-    "icon": "ion-speakerphone"
   },
   {
     "lbl": "Media",

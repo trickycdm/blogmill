@@ -1,16 +1,12 @@
-{{#page}}
-  {{> header/_header}}
-{{/page}}
-
-{{> navs/nav/_nav}}
 <div class="container top">
   <div class="row">
-    <h3 class="main-font --content-color --size-lg  margin --heading">Insightful Thoughts</h3>
+    <h3 class="main-font --content-color --size-lg  margin --heading">Posts</h3>
   </div>
   <div class="row">
     {{#if posts}}
       {{#each posts}}
-        {{> post-snippet/_post-snippet}}
+        {{title}}
+        {{content}}
       {{/each}}
     {{else}}
       No posts
