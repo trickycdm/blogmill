@@ -107,6 +107,32 @@ exports.schema = {
       options: {}
     },
     {
+      name: 'og_title',
+      sqlType: 'TEXT',
+      sqlDef: '',
+      rowTemplate: 'rows/_row-data',
+      rowData: {title: 'Open Graph Metadata', subtitle: 'Check https://developers.facebook.com/tools/debug/ to debug these options'},
+      uiFieldType: 'html5',
+      uiLabel: 'Title',
+      options: {inputType: 'string'}
+    },
+    {
+      name: 'og_desc',
+      sqlType: 'TEXT',
+      sqlDef: '',
+      uiFieldType: 'html5',
+      uiLabel: 'Description',
+      options: {inputType: 'string'}
+    },
+    {
+      name: 'og_image',
+      sqlType: 'TEXT',
+      sqlDef: '',
+      uiFieldType: 'image-gallery',
+      uiLabel: 'Default image',
+      options: {inputType: 'string', smallText: 'Must be 1200x630 pixels'}
+    },
+    {
       name: 'category',
       sqlType: 'INT',
       sqlDef: '',
