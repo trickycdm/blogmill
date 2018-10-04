@@ -14,7 +14,7 @@ router.use((req, res, next) => {
   try {
     // set up global locals
     res.locals.permalinkBaseUrl = `${req.protocol}://${req.get('host')}/`
-    res.locals.sideNav = {mainLinks: CMS_MENU}
+    res.locals.sideNav = { mainLinks: CMS_MENU }
     res.locals.CMS_ROOT = CMS_CONFIG.CMS_ROOT
     res.locals.helpers = _helpers
     // set the correct layout to avoid handlebars multi name collision
@@ -42,7 +42,7 @@ const storage = multer.diskStorage({
   destination: (req, file, cb) => { cb(null, PUBLIC_UPLOAD_PATH) },
   filename: function (req, file, cb) { cb(null, `${uuidv4()}${path.extname(file.originalname)}`) }
 })
-let upload = multer({storage: storage})
+let upload = multer({ storage: storage })
 router.post('/image-upload', auth.validateJwt, upload.single('file'), async (req, res, next) => {
   const record = await _db.insert('media', {
     name: req.body.name.split('.')[0],
@@ -60,8 +60,8 @@ router.post('/image-upload', auth.validateJwt, upload.single('file'), async (req
 
 router.post('/image-upload/:id', auth.validateJwt, upload.single('file'), async (req, res, next) => {
   try {
-    const record = await _db.findOne('media', {id: req.params.id})
-    await _db.update('media', {file_name: req.file.filename}, {id: req.params.id})
+    const record = await _db.findOne('media', { id: req.params.id })
+    await _db.update('media', { file_name: req.file.filename }, { id: req.params.id })
     await fs.remove(`${PUBLIC_UPLOAD_PATH}/${record.file_name}`)
     let resp = {
       fileName: req.file.filename,
@@ -72,7 +72,7 @@ router.post('/image-upload/:id', auth.validateJwt, upload.single('file'), async 
     res.json(resp)
   } catch (err) {
     console.error(err)
-    res.json({control: false, message: 'There was a problem with your request'})
+    res.json({ control: false, message: 'There was a problem with your request' })
   }
 })
 
@@ -109,10 +109,10 @@ router.post('/:page/:id', auth.validateJwt, cmsController.getCmsPageModel, cmsCo
  */
 router.delete('/:page', auth.validateJwt, async (req, res, next) => {
   try {
-    for (let record of req.body) await _db.delete(record.tableName, {id: record.id})
-    res.json({control: true, message: 'Record(s) deleted'})
+    for (let record of req.body) await _db.delete(record.tableName, { id: record.id })
+    res.json({ control: true, message: 'Record(s) deleted' })
   } catch (err) {
-    res.json({control: false, message: 'Sorry there was a problem with your request'})
+    res.json({ control: false, message: 'Sorry there was a problem with your request' })
   }
 })
 

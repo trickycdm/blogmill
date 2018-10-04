@@ -9,12 +9,12 @@ router.get('/get-all-images', async (req, res, next) => {
       media: await bm.getAllMediaItems(),
       basePath: CMS_CONFIG.RELATIVE_IMG_UPLOADS_DIR
     }
-    res.json({control: true, data: data})
+    res.json({ control: true, data: data })
   } catch (err) {
     console.error(err)
     // set 500 to let the calling side catch the error
     res.status(500)
-    res.json({err: err})
+    res.json({ err: err })
   }
 })
 

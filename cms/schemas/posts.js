@@ -19,22 +19,22 @@ exports.schema = {
       if (req.body.id === '') req.body.publish_date = new Date()
       req.body.last_modified_date = new Date()
       // generate our slug for this post
-      req.body.permalink_slug = slug(req.body.title, {lower: true})
+      req.body.permalink_slug = slug(req.body.title, { lower: true })
       req.body.tags = req.body.tags ? JSON.stringify(req.body.tags) : ''
       next()
     } catch (err) {
       console.error(err)
-      res.json({control: false, message: 'There was a problem with your request'})
+      res.json({ control: false, message: 'There was a problem with your request' })
     }
   },
   validate: async (req, res, next) => {
     try {
-      if (!req.body.title) return res.json({control: false, message: 'Not title', error: 'Please add at least a title'})
-      if (await bm.isSlugInUse(req.body.id, req.body.permalink_slug, 'posts')) return res.json({control: false, message: 'Title in use', error: 'Please use another title'})
+      if (!req.body.title) return res.json({ control: false, message: 'Not title', error: 'Please add at least a title' })
+      if (await bm.isSlugInUse(req.body.id, req.body.permalink_slug, 'posts')) return res.json({ control: false, message: 'Title in use', error: 'Please use another title' })
       else next()
     } catch (err) {
       console.error(err)
-      return res.json({control: false, message: 'Sorry', error: 'Something went wrong on our side. Please try again or get in touch directly.'})
+      return res.json({ control: false, message: 'Sorry', error: 'Something went wrong on our side. Please try again or get in touch directly.' })
     }
   },
   preFieldsRender: async (req, res, next) => {
@@ -66,7 +66,7 @@ exports.schema = {
       sqlDef: 'NOT NULL AUTO_INCREMENT',
       uiFieldType: 'hidden',
       uiLabel: '',
-      options: {inputType: 'number'},
+      options: { inputType: 'number' },
       showInTableView: true
     },
     {
@@ -76,7 +76,7 @@ exports.schema = {
       rowTemplate: 'rows/_full-width',
       uiFieldType: 'html5',
       uiLabel: 'Title',
-      options: {validation: {required: true}},
+      options: { validation: { required: true } },
       showInTableView: true
     },
     {
@@ -111,10 +111,10 @@ exports.schema = {
       sqlType: 'TEXT',
       sqlDef: '',
       rowTemplate: 'rows/_row-data',
-      rowData: {title: 'Open Graph Metadata', subtitle: 'Check https://developers.facebook.com/tools/debug/ to debug these options'},
+      rowData: { title: 'Open Graph Metadata', subtitle: 'Check https://developers.facebook.com/tools/debug/ to debug these options' },
       uiFieldType: 'html5',
       uiLabel: 'Title',
-      options: {inputType: 'string'}
+      options: { inputType: 'string' }
     },
     {
       name: 'og_desc',
@@ -122,7 +122,7 @@ exports.schema = {
       sqlDef: '',
       uiFieldType: 'html5',
       uiLabel: 'Description',
-      options: {inputType: 'string'}
+      options: { inputType: 'string' }
     },
     {
       name: 'og_image',
@@ -130,7 +130,7 @@ exports.schema = {
       sqlDef: '',
       uiFieldType: 'image-gallery',
       uiLabel: 'Default image',
-      options: {inputType: 'string', smallText: 'Must be 1200x630 pixels'}
+      options: { inputType: 'string', smallText: 'Must be 1200x630 pixels' }
     },
     {
       name: 'category',
@@ -167,7 +167,7 @@ exports.schema = {
       sqlType: 'DATETIME',
       sqlDef: '',
       uiFieldType: false,
-      options: {inputType: 'date'}
+      options: { inputType: 'date' }
     },
     {
       name: 'publish_date',
@@ -175,7 +175,7 @@ exports.schema = {
       sqlDef: '',
       uiFieldType: false,
       uiLabel: 'Publish Date',
-      options: {inputType: 'date'},
+      options: { inputType: 'date' },
       showInTableView: true,
       preRenderTableCell: (recordId, value) => moment(value).format('DD/MM/YYYY')
     },

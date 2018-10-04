@@ -22,12 +22,12 @@ exports.controller = async (req, res, next) => {
 }
 
 async function populateTableRow (record, pageSchema) {
-  let row = {id: record.id, data: {}}
+  let row = { id: record.id, data: {} }
   for (let column of pageSchema.tableColumns) {
     const columnName = column.name
     let value = record[columnName]
     if (column.preRenderTableCell) value = await column.preRenderTableCell(record.id, value)
-    row.data[columnName] = {value: value, link: `${CMS_CONFIG.CMS_ROOT}/${pageSchema.route}/${record.id}`}
+    row.data[columnName] = { value: value, link: `${CMS_CONFIG.CMS_ROOT}/${pageSchema.route}/${record.id}` }
   }
   return row
 }

@@ -26,7 +26,7 @@ exports.schema = {
       sqlType: 'varchar',
       sqlDef: '(255)',
       rowTemplate: 'rows/_row-data',
-      rowData: {title: 'Header', subtitle: 'This will be the header for your homepage, and is the first thing customers will see'},
+      rowData: { title: 'Header', subtitle: 'This will be the header for your homepage, and is the first thing customers will see' },
       uiFieldType: 'html5',
       uiLabel: 'Title',
       options: {}
@@ -68,7 +68,7 @@ exports.schema = {
       sqlType: 'TEXT',
       sqlDef: '',
       rowTemplate: 'rows/_row-data',
-      rowData: {title: 'Quote Area', subtitle: 'This quote will be boldly presented on your hompeage as a statement of who you are'},
+      rowData: { title: 'Quote Area', subtitle: 'This quote will be boldly presented on your hompeage as a statement of who you are' },
       uiFieldType: 'textarea',
       uiLabel: 'Quote',
       options: {}
@@ -78,7 +78,7 @@ exports.schema = {
       sqlType: 'TEXT',
       sqlDef: '',
       rowTemplate: 'rows/_row-data',
-      rowData: {title: 'Services', subtitle: 'Give an overall description of your services, individual services can be configured under the "globals" menu item'},
+      rowData: { title: 'Services', subtitle: 'Give an overall description of your services, individual services can be configured under the "globals" menu item' },
       uiFieldType: 'textarea',
       uiLabel: 'Description',
       options: {}
@@ -88,7 +88,7 @@ exports.schema = {
       sqlType: 'TEXT',
       sqlDef: '',
       rowTemplate: 'rows/_row-data',
-      rowData: {title: 'In Motion', subtitle: 'This is a chance to demonstrate your business using dynamic content, the "video" inputs should contain youtube links to your content'},
+      rowData: { title: 'In Motion', subtitle: 'This is a chance to demonstrate your business using dynamic content, the "video" inputs should contain youtube links to your content' },
       uiFieldType: 'textarea',
       uiLabel: 'Description',
       options: {}
@@ -99,7 +99,7 @@ exports.schema = {
       sqlDef: '(255)',
       uiFieldType: 'html5',
       uiLabel: 'Video One',
-      options: {inputType: 'url'}
+      options: { inputType: 'url' }
     },
     {
       name: 'in_motion_video_2',
@@ -107,7 +107,7 @@ exports.schema = {
       sqlDef: '(255)',
       uiFieldType: 'html5',
       uiLabel: 'Video Two',
-      options: {inputType: 'url'}
+      options: { inputType: 'url' }
     }
   ]
 }

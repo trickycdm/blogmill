@@ -27,7 +27,7 @@ exports.schema = {
       sqlDef: '(255)',
       uiFieldType: 'select',
       uiLabel: 'Maintenance Mode',
-      options: {selectOptions: [{value: 'enabled', label: 'Enabled'}, {value: 'disabled', label: 'Disabled'}]}
+      options: { selectOptions: [{ value: 'enabled', label: 'Enabled' }, { value: 'disabled', label: 'Disabled' }] }
     },
     {
       name: 'site_name',
@@ -35,7 +35,7 @@ exports.schema = {
       sqlDef: '(255)',
       uiFieldType: 'html5',
       uiLabel: 'Site name',
-      options: {inputType: 'string'}
+      options: { inputType: 'string' }
     },
     {
       name: 'meta_description',
@@ -58,10 +58,10 @@ exports.schema = {
       sqlType: 'TEXT',
       sqlDef: '',
       rowTemplate: 'rows/_row-data',
-      rowData: {title: 'Open Graph Metadata', subtitle: 'Check https://developers.facebook.com/tools/debug/ to debug these options'},
+      rowData: { title: 'Open Graph Metadata', subtitle: 'Check https://developers.facebook.com/tools/debug/ to debug these options' },
       uiFieldType: 'html5',
       uiLabel: 'Title',
-      options: {inputType: 'string'}
+      options: { inputType: 'string' }
     },
     {
       name: 'og_desc',
@@ -69,7 +69,7 @@ exports.schema = {
       sqlDef: '',
       uiFieldType: 'html5',
       uiLabel: 'Description',
-      options: {inputType: 'string'}
+      options: { inputType: 'string' }
     },
     {
       name: 'og_image',
@@ -77,7 +77,7 @@ exports.schema = {
       sqlDef: '',
       uiFieldType: 'image-gallery',
       uiLabel: 'Default image',
-      options: {inputType: 'string', smallText: 'Must be 1200x630 pixels'}
+      options: { inputType: 'string', smallText: 'Must be 1200x630 pixels' }
     }
   ]
 }

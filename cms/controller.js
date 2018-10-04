@@ -85,7 +85,7 @@ exports.runSchemaPreSave = async (req, res, next) => {
     else next()
   } catch (err) {
     console.error(err)
-    res.json({control: false, message: 'There was a problem with your request'})
+    res.json({ control: false, message: 'There was a problem with your request' })
   }
 }
 
@@ -103,7 +103,7 @@ exports.validatePostData = async (req, res, next) => {
     else next()
   } catch (err) {
     console.error(err)
-    res.json({control: false, message: 'There was a problem validating your request'})
+    res.json({ control: false, message: 'There was a problem validating your request' })
   }
 }
 
@@ -123,17 +123,17 @@ exports.savePayload = async (req, res, next) => {
       // delete id from request body in order for insert to work
       delete req.body['id']
       record = await _db.insert(req.pageSchema.table, req.body)
-    } else await _db.update(req.pageSchema.table, req.body, {id: req.body.id})
+    } else await _db.update(req.pageSchema.table, req.body, { id: req.body.id })
     // pass a redirect here so new posts can then be redirected to the edit page with the correct details
-    res.json({control: true, message: 'Record updated', redirect: `${CMS_CONFIG.CMS_ROOT}/${req.pageSchema.route}/${(req.body.id || record.insertId)}`})
+    res.json({ control: true, message: 'Record updated', redirect: `${CMS_CONFIG.CMS_ROOT}/${req.pageSchema.route}/${(req.body.id || record.insertId)}` })
   } catch (err) {
     console.error(new Error('PROBLEM UPSERTNG DB RECORD: ' + err))
-    res.json({control: false, message: 'There was a problem with your saving your data'})
+    res.json({ control: false, message: 'There was a problem with your saving your data' })
   }
 }
 exports.send404 = send404
 
-function send404 (req, res, next) { res.render('errors/404', {helpers: _helpers, layout: 'error-page'}) }
+function send404 (req, res, next) { res.render('errors/404', { helpers: _helpers, layout: 'error-page' }) }
 
 /**
  * Parse out the correct schema from the global schema object
@@ -176,7 +176,7 @@ async function processPageSchema (page) {
 async function getPageRecord (pageId, pageName) {
   if (pageId === 'new') return false
   else if (pageId === false) return _db.findOne(pageName, {})
-  else return _db.findOne(pageName, {id: pageId})
+  else return _db.findOne(pageName, { id: pageId })
 }
 
 /**

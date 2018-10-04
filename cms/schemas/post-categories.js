@@ -6,11 +6,11 @@ exports.schema = {
   template: 'fields',
   preSave: (req, res, next) => {
     try {
-      req.body.slug = slug(req.body.name, {lower: true})
+      req.body.slug = slug(req.body.name, { lower: true })
       next()
     } catch (err) {
       console.error(err)
-      res.json({control: false, message: 'Could not save category at this time.'})
+      res.json({ control: false, message: 'Could not save category at this time.' })
     }
   },
   menu: {
@@ -25,7 +25,7 @@ exports.schema = {
       sqlDef: 'NOT NULL AUTO_INCREMENT',
       uiFieldType: 'html5',
       uiLabel: 'Id',
-      options: {validation: {readonly: true}, inputType: 'number'},
+      options: { validation: { readonly: true }, inputType: 'number' },
       showInTableView: true
     },
     {
@@ -43,7 +43,7 @@ exports.schema = {
       sqlDef: '(255)',
       uiFieldType: 'html5',
       uiLabel: 'Slug',
-      options: {validation: {readonly: true}},
+      options: { validation: { readonly: true } },
       showInTableView: true
     }
   ]

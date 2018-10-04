@@ -28,7 +28,7 @@ exports.schema = {
       next()
     } catch (err) {
       console.error(err)
-      res.json({control: false, message: 'There was a problem with your request'})
+      res.json({ control: false, message: 'There was a problem with your request' })
     }
   },
   fields: [
@@ -38,7 +38,7 @@ exports.schema = {
       sqlDef: 'NOT NULL AUTO_INCREMENT',
       uiFieldType: 'html5',
       uiLabel: 'Id',
-      options: {inputType: 'number', validation: {readonly: true}},
+      options: { inputType: 'number', validation: { readonly: true } },
       showInTableView: true
     },
     {
@@ -47,7 +47,7 @@ exports.schema = {
       sqlDef: '(255)',
       uiFieldType: 'html5',
       uiLabel: 'Username',
-      options: {validation: {required: true}},
+      options: { validation: { required: true } },
       showInTableView: true
     },
     {
@@ -56,7 +56,7 @@ exports.schema = {
       sqlDef: '(255)',
       uiFieldType: 'html5',
       uiLabel: 'Real name',
-      options: {validation: {required: true}},
+      options: { validation: { required: true } },
       showInTableView: true
     },
     {
@@ -65,7 +65,7 @@ exports.schema = {
       sqlDef: '(255)',
       uiFieldType: 'password',
       uiLabel: 'Password',
-      options: {inputType: 'password', smallText: 'Leave unless changing', validation: {required: true, minlength: 8}},
+      options: { inputType: 'password', smallText: 'Leave unless changing', validation: { required: true, minlength: 8 } },
       showInTableView: false
     },
     {

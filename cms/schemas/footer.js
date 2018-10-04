@@ -26,10 +26,10 @@ exports.schema = {
       sqlType: 'VARCHAR',
       sqlDef: '(255)',
       rowTemplate: 'rows/_row-data',
-      rowData: {title: 'Footer', subtitle: 'This section should be filled with your contact details, and will be displayed at the bottom of every page'},
+      rowData: { title: 'Footer', subtitle: 'This section should be filled with your contact details, and will be displayed at the bottom of every page' },
       uiFieldType: 'html5',
       uiLabel: 'Name',
-      options: {inputType: 'string'}
+      options: { inputType: 'string' }
     },
     {
       name: 'description',
@@ -37,7 +37,7 @@ exports.schema = {
       sqlDef: '(255)',
       uiFieldType: 'html5',
       uiLabel: 'Description',
-      options: {inputType: 'string'}
+      options: { inputType: 'string' }
     },
     {
       name: 'tel',
@@ -45,7 +45,7 @@ exports.schema = {
       sqlDef: '(255)',
       uiFieldType: 'html5',
       uiLabel: 'Telephone',
-      options: {inputType: 'string'}
+      options: { inputType: 'string' }
     },
     {
       name: 'email',
@@ -53,7 +53,7 @@ exports.schema = {
       sqlDef: '(255)',
       uiFieldType: 'html5',
       uiLabel: 'Email',
-      options: {inputType: 'string'}
+      options: { inputType: 'string' }
     },
     {
       name: 'background_image',

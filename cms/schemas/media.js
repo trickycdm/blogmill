@@ -31,7 +31,7 @@ exports.schema = {
       sqlDef: 'NOT NULL AUTO_INCREMENT',
       uiFieldType: 'html5',
       uiLabel: 'Id',
-      options: {validation: {readonly: true}, inputType: 'number'},
+      options: { validation: { readonly: true }, inputType: 'number' },
       showInTableView: true
     },
     {
@@ -40,7 +40,7 @@ exports.schema = {
       sqlDef: '',
       uiFieldType: 'html5',
       uiLabel: 'Name',
-      options: {inputType: 'text'},
+      options: { inputType: 'text' },
       showInTableView: true
     },
     // this field is not in the DB
@@ -50,7 +50,7 @@ exports.schema = {
       sqlDef: '',
       uiFieldType: 'image-upload',
       uiLabel: 'Image',
-      options: {inputType: 'text'},
+      options: { inputType: 'text' },
       showInTableView: true,
       preRenderTableCell: async (recordId, value) => {
         const mediaObj = await bm.getMediaObjectById(recordId)
@@ -64,7 +64,7 @@ exports.schema = {
       sqlDef: '',
       uiFieldType: 'html5',
       uiLabel: 'Filename',
-      options: {validation: {readonly: true}, inputType: 'text'},
+      options: { validation: { readonly: true }, inputType: 'text' },
       showInTableView: true
     },
     {
@@ -73,7 +73,7 @@ exports.schema = {
       sqlDef: '',
       uiFieldType: 'html5',
       uiLabel: 'Alt',
-      options: {inputType: 'text'},
+      options: { inputType: 'text' },
       showInTableView: true
     }
   ]

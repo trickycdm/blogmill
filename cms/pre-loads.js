@@ -44,10 +44,10 @@ module.exports = async () => {
  */
 function loadCmsPages (schemaPath) {
   let schema = require(schemaPath)
-  let cmsData = {routes: {}, menu: []}
+  let cmsData = { routes: {}, menu: [] }
   for (let page of schema.pages) {
     cmsData.routes[page.route] = schemaPath
-    if (page.menu && page.menu.show) cmsData.menu.push({lbl: page.menu.lbl, href: page.route, icon: page.menu.icon})
+    if (page.menu && page.menu.show) cmsData.menu.push({ lbl: page.menu.lbl, href: page.route, icon: page.menu.icon })
   }
   return cmsData
 }

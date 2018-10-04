@@ -26,7 +26,7 @@ exports.schema = {
       sqlType: 'varchar',
       sqlDef: '(255)',
       rowTemplate: 'rows/_row-data',
-      rowData: {title: 'Header', subtitle: 'This will be the header for your post page, it is shown on all "blog posts" pages and is the first thing customers will see'},
+      rowData: { title: 'Header', subtitle: 'This will be the header for your post page, it is shown on all "blog posts" pages and is the first thing customers will see' },
       uiFieldType: 'html5',
       uiLabel: 'Title',
       options: {}

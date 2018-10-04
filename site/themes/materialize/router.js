@@ -11,7 +11,7 @@ router.use(function (req, res, next) {
   res.locals.layout = 'site'
   res.locals.menu = {
     links: [
-      {href: 'news', lbl: 'News'}
+      { href: 'news', lbl: 'News' }
     ]
   }
   next()
@@ -32,7 +32,7 @@ router.use(async (req, res, next) => {
 // check for maintenance mode
 router.use(async (req, res, next) => {
   try {
-    if (req.config && req.config.maintenance_mode === 'enabled') return res.render('maintenance/maintenance', {layout: 'error-page'})
+    if (req.config && req.config.maintenance_mode === 'enabled') return res.render('maintenance/maintenance', { layout: 'error-page' })
     else next()
   } catch (err) {
     next(err)
@@ -88,7 +88,7 @@ router.get('/:page', (req, res, next) => {
 router.use((req, res, next) => {
   console.log(`UNKNOWN ROUTE: ${req.url}`)
   res.status(404)
-  res.render('errors/404', {helpers: _helpers, layout: 'error-page'})
+  res.render('errors/404', { helpers: _helpers, layout: 'error-page' })
 })
 
 // ERRORS global error handling middleware MUST come last and MUST have 4 args

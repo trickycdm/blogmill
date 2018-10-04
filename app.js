@@ -29,12 +29,12 @@ const exphbs = require('express-handlebars-multi')
     app.set('views', [`${_root}/cms/pages/`, `${_root}/site/themes/${SITE_THEME}/pages/`])
 
     const bodyParser = require('body-parser')
-    app.use(bodyParser.urlencoded({extended: false}))
+    app.use(bodyParser.urlencoded({ extended: false }))
     app.use(bodyParser.json())
 
     // Cookies and session. CMS user details are stored in JWT token
     app.use(require('cookie-parser')(process.env.SALT))
-    app.use(require('express-session')({secret: process.env.SALT, resave: true, saveUninitialized: true}))
+    app.use(require('express-session')({ secret: process.env.SALT, resave: true, saveUninitialized: true }))
 
     // mount our api
     app.use('/api', require(`${_root}/api/router`))
