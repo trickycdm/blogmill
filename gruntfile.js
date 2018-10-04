@@ -83,11 +83,10 @@ module.exports = function (grunt) {
       site: {
         files: {
           [siteGlobbedScssDestination]: [
-            // make sure we load materialize first
             `${siteScssRoot}_variables.scss`,
+            `${siteScssRoot}_normalize.scss`,
             `${siteScssRoot}_globals.scss`,
             `${siteScssRoot}_basic-style.scss`,
-            `${siteScssRoot}_bootstrap-overrides.scss`,
             `${siteScssRoot}_utilities.scss`,
             `${siteRoot}/**/_*.scss`,
             // add media last to ensure it always has precidence
