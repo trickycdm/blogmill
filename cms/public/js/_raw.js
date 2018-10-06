@@ -16,7 +16,6 @@ $.get('/api/get-all-images', function (resp) {
   })
 })
 
-
 $(function () {
   // set the correct active menu item
   let activeMenuItem = sessionStorage.getItem('activeMenuItem')
