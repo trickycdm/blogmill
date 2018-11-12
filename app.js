@@ -55,7 +55,10 @@ const exphbs = require('express-handlebars-multi')
     app.listen(app.get('port'), () => console.log(`Server started on http://localhost:${app.get('port')} press Ctrl-C to terminate.`))
 
     // we should never need this but helpful if there is a rouge unhandled rejection
-    process.on('unhandledRejection', err => console.error('UNHANDLED PROMISE REJECTION: ', err.message))
+    process.on('unhandledRejection', err => {
+      err.message += 'UNHANDLED PROMISE REJECTION: ' + err.message
+      console.error(err)
+    })
   } catch (err) {
     console.error(err)
     process.exit(1)

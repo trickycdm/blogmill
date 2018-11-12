@@ -131,13 +131,12 @@ router.use(cmsController.send404)
 router.use((err, req, res, next) => {
   const supportId = uuidv4()
   const date = new Date()
-  console.log(`${date} - ${supportId}: ${err.message}`)
-  // do a raw error log here to make sure we get the full stack trace
+  err.message = `${date} - ${supportId}: ${err.message}`
   console.error(err)
   return res.status(500).render('errors/500', {
     helpers: _helpers,
     layout: 'error-page',
-    message: process.env.DEBUG ? err : 'Sorry something went wrong on our side',
+    message: 'Sorry something went wrong on our side',
     supportId: supportId
   })
 })

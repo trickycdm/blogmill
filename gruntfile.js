@@ -1,3 +1,5 @@
+// NOTE if you get infinite loop on grunt watch, make sure all packages are installed, especially npm install grunt-postcss pixrem autoprefixer cssnano for somereason this omits packages form the package.json file.
+
 require('dotenv').config()
 module.exports = function (grunt) {
   // SITE STYLE
@@ -174,4 +176,9 @@ module.exports = function (grunt) {
 
   grunt.registerTask('site-style-build', ['sass_globbing:site', 'sass:site', 'postcss'])
   grunt.registerTask('cms-style-build', ['sass_globbing:cms', 'sass:cms'])
+
+  // utility func to dump grunt config. Useful if you are having any issues.
+  grunt.registerTask('printConfig', function () {
+    grunt.log.writeln(JSON.stringify(grunt.config(), null, 2))
+  })
 }
