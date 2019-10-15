@@ -5,5 +5,5 @@ node_modules/
 .sass-cache
 .DS_Store
 /cms/temp/
-/cms/public/uploads/
+/cms/public/uploads/*
 !/cms/public/uploads/.gitkeep
