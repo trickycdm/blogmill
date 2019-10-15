@@ -1,6 +1,6 @@
 {
   "name": "Blogmill",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Blogmill",
   "main": "app.js",
   "scripts": {
