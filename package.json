@@ -6,18 +6,12 @@
   "scripts": {
     "test": "echo tests to be added",
     "start": "nodemon app.js",
-    "start:dev": "nodemon app.js",
-    "start:uat": "pm2 start -n uat-app app.js",
-    "start:live": "pm2 start -n live-app app.js",
     "lint": "standard --verbose | snazzy",
     "lint:fix": "standard --fix",
     "grunt": "grunt watch",
     "debug": "node app.js --inspect --debug-brk=5858",
-    "new:theme": "grunt-init .grunt-init/base-site-template --force",
-    "new:schema": "grunt-init .grunt-init/new-schema --force",
     "db:init": "INIT_SQL=true node app.js",
     "db:update": "UPDATE_COLUMNS=true node app.js",
-    "update:core": "git pull git@bitbucket.org:dogfish/lp-template.git master",
     "precommit-msg": "echo 'Pre-commit checks...' && exit 0"
   },
   "pre-commit": [
