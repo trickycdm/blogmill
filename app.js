@@ -1,6 +1,6 @@
 // pull all our env confs here. Required to make things MUCH easier to manage
 require('dotenv').config()
-require('dotenv-safe').load()
+require('dotenv-safe').config()
 
 // add our custom module paths first so we can use a nicer require
 require('app-module-path').addPath(`${__dirname}/lib`)
