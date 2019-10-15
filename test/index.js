@@ -13,7 +13,7 @@ var app = require('../core/main')
 app.startApp()
 
 // Local variables
-const controllerPath = _root + '/test/controllers/'
+const controllerPath = ROOT + '/test/controllers/'
 var baseUrl = 'http://localhost:' + process.env.PORT
 
 describe('Starting our app', function () {

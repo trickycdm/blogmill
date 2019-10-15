@@ -6,7 +6,7 @@ module.exports = router
 // reset our view engine for the site
 router.use(function (req, res, next) {
   res.locals.theme = process.env.SITE_THEME
-  res.locals.helpers = _helpers
+  res.locals.helpers = HBS_HELPERS
   // set the correct layout file to make sure multi handlebars does not pick the first 'main' it finds
   res.locals.layout = 'site'
   res.locals.menu = {
@@ -20,7 +20,7 @@ router.use(function (req, res, next) {
 router.use(async (req, res, next) => {
   try {
     const config = bm.getConfig()
-    res.locals.footer = await _db.findOne('footer', {})
+    res.locals.footer = await DB.findOne('footer', {})
     res.locals.config = config
     req.config = config
     next()
@@ -43,7 +43,7 @@ router.use(async (req, res, next) => {
 // the main homepage template will always be used for the root of the site, this expects to see a 'home.js' file in the site themes pages dir
 router.get('/', (req, res, next) => {
   try {
-    if (_sitePages.home && _sitePages.home.express) _sitePages.home.express(req, res, next)
+    if (SITE_PAGES.home && SITE_PAGES.home.express) SITE_PAGES.home.express(req, res, next)
     else next(new Error('NO HOMEPAGE TEMPLATE SET'))
   } catch (err) {
     next(err)
@@ -52,7 +52,7 @@ router.get('/', (req, res, next) => {
 
 // the main posts template will always be used at /posts, this expects to see a '/posts/posts.js' file in the site themes pages dir
 router.get('/posts', (req, res, next) => {
-  if (_sitePages.posts && _sitePages.posts.express) _sitePages.posts.express(req, res, next)
+  if (SITE_PAGES.posts && SITE_PAGES.posts.express) SITE_PAGES.posts.express(req, res, next)
   else next(new Error('NO POSTS TEMPLATE SET'))
 })
 
@@ -64,7 +64,7 @@ router.get('/posts/:permalinkSlug', async (req, res, next) => {
       post.authorName = await bm.getAuthorById(post.author_id).real_name
       res.render('post/post', {
         post: post,
-        page: await _db.findOne('postpage', {})
+        page: await DB.findOne('postpage', {})
       })
     } else next()
   } catch (err) {
@@ -73,14 +73,14 @@ router.get('/posts/:permalinkSlug', async (req, res, next) => {
 })
 
 // bind our dynamic routers to the main router
-Object.keys(_sitePages).map(key => {
-  if (_sitePages[key].router) router.use(`/${key}`, _sitePages[key].router)
+Object.keys(SITE_PAGES).map(key => {
+  if (SITE_PAGES[key].router) router.use(`/${key}`, SITE_PAGES[key].router)
 })
 
 // check for dynamic page routing. I.e a site page having its own .js controller file. These can either contain a single express router or a more complex router to handle sub routing.
 router.get('/:page', (req, res, next) => {
   const page = req.params.page
-  if (_sitePages[page] && _sitePages[page].express) _sitePages[page].express(req, res, next)
+  if (SITE_PAGES[page] && SITE_PAGES[page].express) SITE_PAGES[page].express(req, res, next)
   else next()
 })
 
@@ -88,7 +88,7 @@ router.get('/:page', (req, res, next) => {
 router.use((req, res, next) => {
   console.log(`UNKNOWN ROUTE: ${req.url}`)
   res.status(404)
-  res.render('errors/404', { helpers: _helpers, layout: 'error-page' })
+  res.render('errors/404', { helpers: HBS_HELPERS, layout: 'error-page' })
 })
 
 // ERRORS global error handling middleware MUST come last and MUST have 4 args
@@ -98,7 +98,7 @@ router.use((err, req, res, next) => {
   err.message = `${date} - ${supportId}: ${err.message}`
   console.error(err)
   return res.status(500).render('errors/500', {
-    helpers: _helpers,
+    helpers: HBS_HELPERS,
     layout: 'error-page',
     message: 'Sorry something went wrong on our side',
     supportId: supportId

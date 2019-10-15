@@ -11,11 +11,11 @@ module.exports = async () => {
      * Set our path for temp file uploads and there final destination
      * @type {string}
      */
-    global.TEMP_FILE_PATH = `${_root}/${CMS_CONFIG.TEMP_FILE_DIR}`
+    global.TEMP_FILE_PATH = `${ROOT}/${CMS_CONFIG.TEMP_FILE_DIR}`
     // this is the relative path to serve images via the browser
     CMS_CONFIG.RELATIVE_IMG_UPLOADS_DIR = `${CMS_CONFIG.CMS_ROOT}/${CMS_CONFIG.RELATIVE_IMG_UPLOADS_DIR}`
     // this is the full file system path to manipulate files o the server
-    global.PUBLIC_UPLOAD_PATH = `${_root}/${CMS_CONFIG.RELATIVE_IMG_UPLOADS_DIR}`
+    global.PUBLIC_UPLOAD_PATH = `${ROOT}/${CMS_CONFIG.RELATIVE_IMG_UPLOADS_DIR}`
 
     /**
      * Set up all the CMS pages and options.
@@ -24,7 +24,7 @@ module.exports = async () => {
      * 3. Check for any bolt on CMS modules, These are fully self contained parts that are loaded before the standard nodemill routes.
      * 4. Check for individual CMS pages defined in the site theme. This allows an individual site page to create an ad hoc CMS page, these are loaded before everything as they are the most specific.
      */
-    global.CMS_SCHEMA = `${_root}/cms/schema`
+    global.CMS_SCHEMA = `${ROOT}/cms/schema`
     const cmsData = loadCmsPages(CMS_SCHEMA)
     global.CMS_ROUTES = cmsData.routes
     // global.CMS_MENU = cmsData.menu
@@ -54,7 +54,7 @@ function loadCmsPages (schemaPath) {
 
 async function loadFieldControllers () {
   try {
-    const fieldsBaseDir = _root + '/cms/components/fields'
+    const fieldsBaseDir = ROOT + '/cms/components/fields'
     const fields = await fs.readdir(fieldsBaseDir)
     const fieldControllers = {}
     fields

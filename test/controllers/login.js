@@ -7,7 +7,7 @@ chai.use(chaiHttp)
 // locals
 var baseUrl = 'http://localhost:' + process.env.PORT
 
-var creds = require(_root + '/test/creds.json').frontendLogin
+var creds = require(ROOT + '/test/creds.json').frontendLogin
 
 describe('Login flow: ', function () {
   it('should be allowed to access login page....')

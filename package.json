@@ -85,20 +85,20 @@
   },
   "standard": {
     "globals": [
-      "_db",
-      "_root",
-      "_helpers",
-      "_cmsPages",
+      "DB",
+      "POOL_CONNECTION",
+      "ROOT",
+      "HBS_HELPERS",
       "CMS_CONFIG",
       "CMS_ROUTES",
       "CMS_SCHEMA",
       "TEMP_FILE_PATH",
       "PUBLIC_UPLOAD_PATH",
       "FIELD_CONTROLLERS",
-      "swal",
       "CMS_MENU",
-      "_sitePages",
-      "M"
+      "SITE_PAGES",
+      "M",
+      "swal"
     ],
     "env": [
       "browser",

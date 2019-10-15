@@ -21,12 +21,12 @@ const exphbs = require('express-handlebars-multi')
       ext: '.hbs',
       helpers: require('hbs-helpers').helpers,
       defaultLayout: 'main',
-      layoutDirs: [`${_root}/cms/layouts/`, `${_root}/site/themes/${SITE_THEME}/layouts/`],
-      partialDirs: [`${_root}/cms/components/`, `${_root}/site/themes/${SITE_THEME}/components/`]
+      layoutDirs: [`${ROOT}/cms/layouts/`, `${ROOT}/site/themes/${SITE_THEME}/layouts/`],
+      partialDirs: [`${ROOT}/cms/components/`, `${ROOT}/site/themes/${SITE_THEME}/components/`]
     }
     app.engine('.hbs', exphbs(hbsOptions))
     app.set('view engine', '.hbs')
-    app.set('views', [`${_root}/cms/pages/`, `${_root}/site/themes/${SITE_THEME}/pages/`])
+    app.set('views', [`${ROOT}/cms/pages/`, `${ROOT}/site/themes/${SITE_THEME}/pages/`])
 
     const bodyParser = require('body-parser')
     app.use(bodyParser.urlencoded({ extended: false }))
@@ -37,15 +37,15 @@ const exphbs = require('express-handlebars-multi')
     app.use(require('express-session')({ secret: process.env.SALT, resave: true, saveUninitialized: true }))
 
     // mount our api
-    app.use('/api', require(`${_root}/api/router`))
+    app.use('/api', require(`${ROOT}/api/router`))
 
     // Load the CMS and set the correct public prefix for all CMS resources.
     require('./cms/pre-loads')()
-    app.use('/cms', express.static(`${_root}/cms`))
+    app.use('/cms', express.static(`${ROOT}/cms`))
     app.use('/cms', require('./cms/router'))
 
     // Load the site and set the correct site public prefix, this will ensure all public files request at /site/public come form the correct theme
-    app.use('/site', express.static(`${_root}/site/themes/${SITE_THEME}`))
+    app.use('/site', express.static(`${ROOT}/site/themes/${SITE_THEME}`))
     app.use('/', require(`./site/themes/${SITE_THEME}/router`))
 
     if (process.env.INIT_SQL) require('init-sql').initDb()

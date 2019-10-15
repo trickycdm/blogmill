@@ -9,7 +9,7 @@ exports.controller = async (req, res, next) => {
   try {
     // check for single pages that do not require the table view
     if (req.pageSchema.single) return next()
-    const tableData = await _db.find(req.pageSchema.table, {})
+    const tableData = await DB.find(req.pageSchema.table, {})
     // only include table columns flagged for inclusion
     req.pageSchema.tableColumns = req.pageSchema.fields.filter(field => field.showInTableView) // TODO: Validate schema's that have no table columns defined
     const rows = []

@@ -122,8 +122,8 @@ exports.savePayload = async (req, res, next) => {
       // TODO: potential refactor - questionable approach to fixing bug
       // delete id from request body in order for insert to work
       delete req.body.id
-      record = await _db.insert(req.pageSchema.table, req.body)
-    } else await _db.update(req.pageSchema.table, req.body, { id: req.body.id })
+      record = await DB.insert(req.pageSchema.table, req.body)
+    } else await DB.update(req.pageSchema.table, req.body, { id: req.body.id })
     // pass a redirect here so new posts can then be redirected to the edit page with the correct details
     res.json({ control: true, message: 'Record updated', redirect: `${CMS_CONFIG.CMS_ROOT}/${req.pageSchema.route}/${(req.body.id || record.insertId)}` })
   } catch (err) {
@@ -133,7 +133,7 @@ exports.savePayload = async (req, res, next) => {
 }
 exports.send404 = send404
 
-function send404 (req, res, next) { res.render('errors/404', { helpers: _helpers, layout: 'error-page' }) }
+function send404 (req, res, next) { res.render('errors/404', { helpers: HBS_HELPERS, layout: 'error-page' }) }
 
 /**
  * Parse out the correct schema from the global schema object
@@ -175,8 +175,8 @@ async function processPageSchema (page) {
 // TODO make the page return a 404 if the id does not return a value, e.g posts/1183794932 returns the new post page, this should be a 404
 async function getPageRecord (pageId, pageName) {
   if (pageId === 'new') return false
-  else if (pageId === false) return _db.findOne(pageName, {})
-  else return _db.findOne(pageName, { id: pageId })
+  else if (pageId === false) return DB.findOne(pageName, {})
+  else return DB.findOne(pageName, { id: pageId })
 }
 
 /**

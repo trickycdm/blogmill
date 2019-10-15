@@ -1,4 +1,4 @@
-const schemaPath = `${_root}/cms/schemas`
+const schemaPath = `${ROOT}/cms/schemas`
 const schema = {
   pages: [
     require(`${schemaPath}/config`).schema,
