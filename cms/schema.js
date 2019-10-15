@@ -1,6 +1,6 @@
 const schemaPath = `${_root}/cms/schemas`
 const schema = {
-  'pages': [
+  pages: [
     require(`${schemaPath}/config`).schema,
     require(`${schemaPath}/footer`).schema,
     require(`${schemaPath}/page-home`).schema,

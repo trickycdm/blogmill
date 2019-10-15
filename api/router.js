@@ -5,7 +5,7 @@ module.exports = router
 
 router.get('/get-all-images', async (req, res, next) => {
   try {
-    let data = {
+    const data = {
       media: await bm.getAllMediaItems(),
       basePath: CMS_CONFIG.RELATIVE_IMG_UPLOADS_DIR
     }

@@ -58,7 +58,7 @@ exports.runFieldPreSave = async (req, res, next) => {
   try {
     const fields = dataUtils.customKeyArray2Object(req.pageSchema.fields, 'name')
     // check to see if there are any field specific preSave functions
-    for (let inputName of Object.keys(req.body)) {
+    for (const inputName of Object.keys(req.body)) {
       if (fields[inputName]) {
         const fieldType = fields[inputName].uiFieldType
         if (FIELD_CONTROLLERS[fieldType]) req.body[inputName] = await FIELD_CONTROLLERS[fieldType].fieldPreSave(req.body[inputName])
@@ -121,7 +121,7 @@ exports.savePayload = async (req, res, next) => {
     if (req.body.id === '') {
       // TODO: potential refactor - questionable approach to fixing bug
       // delete id from request body in order for insert to work
-      delete req.body['id']
+      delete req.body.id
       record = await _db.insert(req.pageSchema.table, req.body)
     } else await _db.update(req.pageSchema.table, req.body, { id: req.body.id })
     // pass a redirect here so new posts can then be redirected to the edit page with the correct details
@@ -157,7 +157,7 @@ async function processPageSchema (page) {
   page.aboveEdit = page.aboveEdit || null
   page.belowEdit = page.belowEdit || null
   // reset any values that may have been set on this global page object, these are set in later steps. TODO make sure we dont use global page state
-  for (let field of page.fields) { field.value = '' }
+  for (const field of page.fields) { field.value = '' }
   return page
 }
 
@@ -189,7 +189,7 @@ async function getPageRecord (pageId, pageName) {
  * @returns {Promise}
  */
 async function attachFieldValues (req, pageDetails, pageData) {
-  for (let field of pageDetails.fields) {
+  for (const field of pageDetails.fields) {
     field.value = pageData[field.name] || ''
     // check for any field pre render funcs
     if (FIELD_CONTROLLERS[field.uiFieldType] && FIELD_CONTROLLERS[field.uiFieldType].preFieldRender) field.value = await FIELD_CONTROLLERS[field.uiFieldType].preFieldRender(field.value, req)
@@ -203,7 +203,7 @@ async function attachFieldValues (req, pageDetails, pageData) {
  * @returns {Promise<*>}
  */
 async function setHbsTemplateDetails (fields) {
-  for (let field of fields) {
+  for (const field of fields) {
     if (!field.rowTemplate) field.rowTemplate = 'rows/_default-row'
     if (field.uiFieldType === 'hidden') field.rowTemplate = 'rows/_hidden'
     field.partial = `fields/${field.uiFieldType}/${field.uiFieldType}`

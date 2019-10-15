@@ -5,7 +5,7 @@ module.exports = async () => {
      * Load our config and set defaults for those not defined
      * @type {*}
      */
-    global.CMS_CONFIG = require(`./config.json`)
+    global.CMS_CONFIG = require('./config.json')
 
     /**
      * Set our path for temp file uploads and there final destination
@@ -43,9 +43,9 @@ module.exports = async () => {
  * @returns {{routes: {}, menu: Array}}
  */
 function loadCmsPages (schemaPath) {
-  let schema = require(schemaPath)
-  let cmsData = { routes: {}, menu: [] }
-  for (let page of schema.pages) {
+  const schema = require(schemaPath)
+  const cmsData = { routes: {}, menu: [] }
+  for (const page of schema.pages) {
     cmsData.routes[page.route] = schemaPath
     if (page.menu && page.menu.show) cmsData.menu.push({ lbl: page.menu.lbl, href: page.route, icon: page.menu.icon })
   }
@@ -56,7 +56,7 @@ async function loadFieldControllers () {
   try {
     const fieldsBaseDir = _root + '/cms/components/fields'
     const fields = await fs.readdir(fieldsBaseDir)
-    let fieldControllers = {}
+    const fieldControllers = {}
     fields
       .filter(field => fs.existsSync(`${fieldsBaseDir}/${field}/controller.js`))
       .forEach(field => { fieldControllers[field] = require(`${fieldsBaseDir}/${field}/controller`) })

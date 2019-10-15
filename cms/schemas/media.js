@@ -15,9 +15,9 @@ exports.schema = {
       // only modify the data if this is an existing record
       if (req.renderData.recordId) {
         let fileName = ''
-        for (let field of req.renderData.templateFields) if (field.name === 'file_name') fileName = field.value
-        for (let field of req.renderData.templateFields) if (field.name === 'image') field.mediaPreview = `${CMS_CONFIG.RELATIVE_IMG_UPLOADS_DIR}/${fileName}`
-        for (let field of req.renderData.templateFields) if (field.name === 'id' && field.value) req.renderData.existingRecord = true
+        for (const field of req.renderData.templateFields) if (field.name === 'file_name') fileName = field.value
+        for (const field of req.renderData.templateFields) if (field.name === 'image') field.mediaPreview = `${CMS_CONFIG.RELATIVE_IMG_UPLOADS_DIR}/${fileName}`
+        for (const field of req.renderData.templateFields) if (field.name === 'id' && field.value) req.renderData.existingRecord = true
       }
       next()
     } catch (err) {

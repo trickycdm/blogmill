@@ -43,7 +43,7 @@ router.use(async (req, res, next) => {
 // the main homepage template will always be used for the root of the site, this expects to see a 'home.js' file in the site themes pages dir
 router.get('/', (req, res, next) => {
   try {
-    if (_sitePages['home'] && _sitePages['home'].express) _sitePages['home'].express(req, res, next)
+    if (_sitePages.home && _sitePages.home.express) _sitePages.home.express(req, res, next)
     else next(new Error('NO HOMEPAGE TEMPLATE SET'))
   } catch (err) {
     next(err)
@@ -52,7 +52,7 @@ router.get('/', (req, res, next) => {
 
 // the main posts template will always be used at /posts, this expects to see a '/posts/posts.js' file in the site themes pages dir
 router.get('/posts', (req, res, next) => {
-  if (_sitePages['posts'] && _sitePages['posts'].express) _sitePages['posts'].express(req, res, next)
+  if (_sitePages.posts && _sitePages.posts.express) _sitePages.posts.express(req, res, next)
   else next(new Error('NO POSTS TEMPLATE SET'))
 })
 

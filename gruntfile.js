@@ -14,7 +14,7 @@ module.exports = function (grunt) {
   const siteJsFinalOutput = `${siteRoot}/public/js/main.min.js`
 
   // CMS STYLE
-  const cmsRoot = `cms`
+  const cmsRoot = 'cms'
   const cmsGlobbedScssDestination = `${cmsRoot}/scss/style.scss`
   const cmsScssRoot = `${cmsRoot}/scss/`
   const cmsPublicStyleDestination = `${cmsRoot}/public/css/style.css`
@@ -50,11 +50,7 @@ module.exports = function (grunt) {
         sourceMap: true,
         minified: true,
         presets: [
-          ['@babel/preset-env', {
-            'targets': {
-              'chrome': '60'
-            }
-          }]
+          ['@babel/preset-env']
         ]
       },
       dist: {
@@ -97,7 +93,7 @@ module.exports = function (grunt) {
         },
         options: {
           useSingleQuotes: false,
-          signature: '// Style by Colin Mackenzie - DOGFI.SH Mobile'
+          signature: '// Style by Colin Mackenzie - Viral Edge'
         }
       },
       cms: {
@@ -112,7 +108,7 @@ module.exports = function (grunt) {
         },
         options: {
           useSingleQuotes: false,
-          signature: '// Style by Colin Mackenzie - DOGFI.SH Mobile'
+          signature: '// Style by Colin Mackenzie - Viral Edge'
         }
       }
     },
@@ -142,8 +138,8 @@ module.exports = function (grunt) {
           inline: false // save all sourcemaps as separate files...
         },
         processors: [
-          require('autoprefixer')({ browsers: 'last 2 versions' }), // add vendor prefixes
-          require('cssnano')() // minify the result
+          require('autoprefixer')(),
+          require('cssnano')()
         ]
       },
       dist: {

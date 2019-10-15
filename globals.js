@@ -15,9 +15,9 @@ exports.setGlobals = async () => {
 }
 
 function loadSitePages (pagesBaseDir) {
-  let pageControllers = {}
+  const pageControllers = {}
   fs.readdirSync(pagesBaseDir).forEach(pageDir => {
-    let fullFilePath = `${pagesBaseDir}/${pageDir}`
+    const fullFilePath = `${pagesBaseDir}/${pageDir}`
     fs.readdirSync(fullFilePath).forEach(controller => {
       const ext = controller.split('.').pop()
       // make sure our js files are not our client side partials

@@ -5,7 +5,7 @@ module.exports = router
 router.get('/', (req, res, next) => {
   // todo set this dynamicaly
   if (req.cookies[CMS_CONFIG.AUTH_COOKIE_NAME]) return res.redirect(CMS_CONFIG.CMS_HOME)
-  let td = { layout: 'pre-login' }
+  const td = { layout: 'pre-login' }
   res.render('login/login', td)
 })
 

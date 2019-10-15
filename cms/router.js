@@ -42,14 +42,14 @@ const storage = multer.diskStorage({
   destination: (req, file, cb) => { cb(null, PUBLIC_UPLOAD_PATH) },
   filename: function (req, file, cb) { cb(null, `${uuidv4()}${path.extname(file.originalname)}`) }
 })
-let upload = multer({ storage: storage })
+const upload = multer({ storage: storage })
 router.post('/image-upload', auth.validateJwt, upload.single('file'), async (req, res, next) => {
   const record = await _db.insert('media', {
     name: req.body.name.split('.')[0],
     file_name: req.file.filename,
     alt: ''
   })
-  let resp = {
+  const resp = {
     fileName: req.file.filename,
     originalName: req.body.name,
     previewLocation: `/api/media/${record.insertId}`,
@@ -63,7 +63,7 @@ router.post('/image-upload/:id', auth.validateJwt, upload.single('file'), async 
     const record = await _db.findOne('media', { id: req.params.id })
     await _db.update('media', { file_name: req.file.filename }, { id: req.params.id })
     await fs.remove(`${PUBLIC_UPLOAD_PATH}/${record.file_name}`)
-    let resp = {
+    const resp = {
       fileName: req.file.filename,
       originalName: req.body.name,
       previewLocation: `/api/media/${req.params.id}`,
@@ -109,7 +109,7 @@ router.post('/:page/:id', auth.validateJwt, cmsController.getCmsPageModel, cmsCo
  */
 router.delete('/:page', auth.validateJwt, async (req, res, next) => {
   try {
-    for (let record of req.body) await _db.delete(record.tableName, { id: record.id })
+    for (const record of req.body) await _db.delete(record.tableName, { id: record.id })
     res.json({ control: true, message: 'Record(s) deleted' })
   } catch (err) {
     res.json({ control: false, message: 'Sorry there was a problem with your request' })

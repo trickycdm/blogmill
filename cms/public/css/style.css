@@ -267,17 +267,11 @@ a:hover {
   margin-top: 20px;
 }
 
-.dropzone__custom {
-  height: 250px;
-  border: 1px dashed grey;
-  padding: 10px;
-  text-align: center;
-  border-radius: 6px;
-  margin-bottom: 10px;
-}
-
-.image-thumbnail-preview {
+.image-thumbnail-preview-container {
   margin-top: 10px;
+}
+.image-thumbnail-preview-container img {
+  max-width: 100%;
 }
 
 .content-meta-box {

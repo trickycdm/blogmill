@@ -39,9 +39,9 @@ exports.schema = {
   },
   preFieldsRender: async (req, res, next) => {
     try {
-      let fields = dataUtils.customKeyArray2Object(req.renderData.templateFields, 'name')
-      let isNewPage = !fields.title.value // if this value exists it is not a new page
-      let author = fields.author_id.value ? await bm.getAuthorById(fields.author_id.value) : false
+      const fields = dataUtils.customKeyArray2Object(req.renderData.templateFields, 'name')
+      const isNewPage = !fields.title.value // if this value exists it is not a new page
+      const author = fields.author_id.value ? await bm.getAuthorById(fields.author_id.value) : false
       fields.status.value = fields.status.value || 'new'
       req.renderData.status = fields.status.value
       req.renderData.pageTitle = isNewPage ? 'New Post' : 'Edit post'
@@ -151,7 +151,7 @@ exports.schema = {
       options: {},
       showInTableView: true,
       preRenderTableCell: async (recordId, value) => {
-        let author = await bm.getAuthorById(value)
+        const author = await bm.getAuthorById(value)
         return author ? author.real_name : 'No Author'
       }
     },

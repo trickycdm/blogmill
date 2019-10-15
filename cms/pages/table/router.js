@@ -9,11 +9,11 @@ exports.controller = async (req, res, next) => {
   try {
     // check for single pages that do not require the table view
     if (req.pageSchema.single) return next()
-    let tableData = await _db.find(req.pageSchema.table, {})
+    const tableData = await _db.find(req.pageSchema.table, {})
     // only include table columns flagged for inclusion
     req.pageSchema.tableColumns = req.pageSchema.fields.filter(field => field.showInTableView) // TODO: Validate schema's that have no table columns defined
-    let rows = []
-    for (let tableRow of tableData) rows.push(await populateTableRow(tableRow, req.pageSchema))
+    const rows = []
+    for (const tableRow of tableData) rows.push(await populateTableRow(tableRow, req.pageSchema))
     req.pageSchema.rows = rows
     return res.render('table/table', req.pageSchema)
   } catch (err) {
@@ -22,8 +22,8 @@ exports.controller = async (req, res, next) => {
 }
 
 async function populateTableRow (record, pageSchema) {
-  let row = { id: record.id, data: {} }
-  for (let column of pageSchema.tableColumns) {
+  const row = { id: record.id, data: {} }
+  for (const column of pageSchema.tableColumns) {
     const columnName = column.name
     let value = record[columnName]
     if (column.preRenderTableCell) value = await column.preRenderTableCell(record.id, value)
