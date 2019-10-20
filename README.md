@@ -127,6 +127,10 @@ exports.preFieldRender = (value, req = false) => {
 ```
 The system will auto detect these controller.js files (they must be called controller.js) and load there respective exports.
 
-### controller.js methods
-* preFieldSave - this will run before any other general schema functions. I.e this will receive the field data for manipulation before any other function.
-* preFieldRender - this will be passed the individual field data right before it is rendered, i.e it may have passed through other functions before getting here but it is always passed through here before the final render. It is given the optional req object to allow you to extract any info you need for conditional processing on the field
+### preFieldSave
+This will run before any other general schema functions. I.e this will receive the field data for manipulation before any other function.
+
+### preFieldRender
+This will be passed the individual field data right before it is rendered, i.e it may have passed through other functions before getting here but it is always passed through here before the final render. It is given the optional req object to allow you to extract any info you need for conditional processing on the field. The value prop is what is returned so will be accessible in the hbs under value.
+
+It may be helpful to use the getAnotherFieldInPreFieldRender method in this field func as you may need data from other fields.
