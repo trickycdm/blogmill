@@ -1,9 +1,8 @@
 // UPPY
-const Uppy = require('uppy/lib/core/Core')
-const XHRUpload = require('uppy/lib/plugins/XHRUpload')
-const ProgressBar = require('uppy/lib/plugins/ProgressBar')
-const Dashboard = require('uppy/lib/plugins/Dashboard')
-const Webcam = require('uppy/lib/plugins/Webcam')
+const Uppy = require('@uppy/core')
+const XHRUpload = require('@uppy/xhr-upload')
+const ProgressBar = require('@uppy/progress-bar')
+const Dashboard = require('@uppy/dashboard')
 
 // restrictions object needs to be specified inside the new Uppy instance
 const uppy = new Uppy({
@@ -32,7 +31,6 @@ if ($('.image-modal-btn').length > 0) {
       {id: 'caption', name: 'Caption', placeholder: 'describe what the image is about'}
     ]
   })
-  uppy.use(Webcam, {target: Dashboard})
   uppy.use(XHRUpload, {
     // Endpoint is generated dynamically as the Id must be passed when updating an existing entry
     // Uppy provides no functionality which allows you to pass your own data, so this solution is required
