@@ -1,6 +1,8 @@
-<select name="{{name}}" id="{{id}}">
+<select name="{{name}}" id="{{name}}">
   {{#each options.selectOptions}}
     <option value="{{value}}" {{#isEqual value ../value}}selected{{/isEqual}}>{{label}}</option>
   {{/each}}
 </select>
-<small class="form-text text-muted">{{inputSubText}}</small>
+{{#if options.smallText}}
+  <small class="form-text text-muted">{{options.smallText}}</small>
+{{/if}}
