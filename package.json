@@ -13,6 +13,7 @@
     "db:init": "INIT_SQL=true node app.js",
     "db:update": "UPDATE_COLUMNS=true node app.js",
     "precommit-msg": "echo 'Pre-commit checks...' && exit 0"
+    "precommit-msg": "echo 'Pre-commit checks...' && exit 0"
   },
   "pre-commit": [
     "precommit-msg",
